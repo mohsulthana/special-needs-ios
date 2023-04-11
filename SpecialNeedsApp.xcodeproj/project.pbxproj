@@ -34,6 +34,12 @@
 		17C8391129E56FCE00FE5BBC /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 17C8391029E56FCE00FE5BBC /* FirebaseRemoteConfigSwift */; };
 		17C8391329E56FCE00FE5BBC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 17C8391229E56FCE00FE5BBC /* FirebaseStorage */; };
 		17C8391529E56FCE00FE5BBC /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 17C8391429E56FCE00FE5BBC /* FirebaseStorageCombine-Community */; };
+		17C8391729E5A44D00FE5BBC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17C8391629E5A44D00FE5BBC /* GoogleService-Info.plist */; };
+		17C8391929E5A65200FE5BBC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C8391829E5A65200FE5BBC /* LoginViewController.swift */; };
+		17C8391B29E5AED300FE5BBC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C8391A29E5AED300FE5BBC /* AuthService.swift */; };
+		17C8391D29E5AFBB00FE5BBC /* RegisterUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C8391C29E5AFBB00FE5BBC /* RegisterUserRequest.swift */; };
+		17C8391F29E5BFB200FE5BBC /* LoginUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C8391E29E5BFB200FE5BBC /* LoginUserRequest.swift */; };
+		17C8392129E5C3DC00FE5BBC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C8392029E5C3DC00FE5BBC /* ProfileViewController.swift */; };
 		3D04C6642603F85F00BD559B /* SupportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04C6632603F85F00BD559B /* SupportCell.swift */; };
 		3D04C6672603F91800BD559B /* SupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04C6662603F91800BD559B /* SupportVC.swift */; };
 		3DF3BBDB263A93B50015CF7E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF3BBDA263A93B50015CF7E /* StoreKit.framework */; };
@@ -58,6 +64,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17C8391629E5A44D00FE5BBC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		17C8391829E5A65200FE5BBC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		17C8391A29E5AED300FE5BBC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		17C8391C29E5AFBB00FE5BBC /* RegisterUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserRequest.swift; sourceTree = "<group>"; };
+		17C8391E29E5BFB200FE5BBC /* LoginUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserRequest.swift; sourceTree = "<group>"; };
+		17C8392029E5C3DC00FE5BBC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1E83A9BF421CBD65186C935D /* Pods-SpecialNeedsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialNeedsApp.debug.xcconfig"; path = "Target Support Files/Pods-SpecialNeedsApp/Pods-SpecialNeedsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		25F0148D5FEDF3775568D1D5 /* Pods-SpecialNeedsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialNeedsApp.release.xcconfig"; path = "Target Support Files/Pods-SpecialNeedsApp/Pods-SpecialNeedsApp.release.xcconfig"; sourceTree = "<group>"; };
 		3D04C6632603F85F00BD559B /* SupportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportCell.swift; sourceTree = "<group>"; };
@@ -172,7 +184,9 @@
 				9A55F9F5238D1B9A00B38A32 /* Extension */,
 				9A55F9EE238D156200B38A32 /* Storyboards */,
 				9A55F9D6238BCC3500B38A32 /* Assets.xcassets */,
+				17C8391629E5A44D00FE5BBC /* GoogleService-Info.plist */,
 				9A55F9DB238BCC3500B38A32 /* Info.plist */,
+				17C8391A29E5AED300FE5BBC /* AuthService.swift */,
 			);
 			path = SpecialNeedsApp;
 			sourceTree = "<group>";
@@ -183,6 +197,8 @@
 				9A55F9EF238D15A600B38A32 /* Grade.swift */,
 				9A55F9F1238D15B700B38A32 /* Subject.swift */,
 				9A55F9F3238D15BF00B38A32 /* Goal.swift */,
+				17C8391C29E5AFBB00FE5BBC /* RegisterUserRequest.swift */,
+				17C8391E29E5BFB200FE5BBC /* LoginUserRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -206,6 +222,8 @@
 				9A55F9E5238BDD2B00B38A32 /* PickSubjectVC.swift */,
 				9A55F9F8238D79DC00B38A32 /* GoalsVC.swift */,
 				3D04C6662603F91800BD559B /* SupportVC.swift */,
+				17C8391829E5A65200FE5BBC /* LoginViewController.swift */,
+				17C8392029E5C3DC00FE5BBC /* ProfileViewController.swift */,
 			);
 			path = Controler;
 			sourceTree = "<group>";
@@ -329,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A55F9DA238BCC3500B38A32 /* LaunchScreen.storyboard in Resources */,
+				17C8391729E5A44D00FE5BBC /* GoogleService-Info.plist in Resources */,
 				9A55F9D7238BCC3500B38A32 /* Assets.xcassets in Resources */,
 				9A55F9D5238BCC3400B38A32 /* Main.storyboard in Resources */,
 			);
@@ -386,8 +405,10 @@
 				9A55F9F2238D15B700B38A32 /* Subject.swift in Sources */,
 				9A55F9E6238BDD2B00B38A32 /* PickSubjectVC.swift in Sources */,
 				3D04C6672603F91800BD559B /* SupportVC.swift in Sources */,
+				17C8391B29E5AED300FE5BBC /* AuthService.swift in Sources */,
 				9A55F9EC238D130500B38A32 /* SelectGradeVC.swift in Sources */,
 				9A55F9CE238BCC3400B38A32 /* AppDelegate.swift in Sources */,
+				17C8391F29E5BFB200FE5BBC /* LoginUserRequest.swift in Sources */,
 				9A55F9F9238D79DC00B38A32 /* GoalsVC.swift in Sources */,
 				3DF3BBDE263AA08D0015CF7E /* BillingController.swift in Sources */,
 				AF48D5EF2406A482008B2F90 /* Utils.swift in Sources */,
@@ -396,7 +417,10 @@
 				9A55F9F7238D1BBD00B38A32 /* Object+Extensions.swift in Sources */,
 				9A55F9FB238D7B7600B38A32 /* GoalsCell.swift in Sources */,
 				9A55F9E4238BD54200B38A32 /* SelectYourGradeCell.swift in Sources */,
+				17C8391D29E5AFBB00FE5BBC /* RegisterUserRequest.swift in Sources */,
+				17C8391929E5A65200FE5BBC /* LoginViewController.swift in Sources */,
 				9A55F9F4238D15BF00B38A32 /* Goal.swift in Sources */,
+				17C8392129E5C3DC00FE5BBC /* ProfileViewController.swift in Sources */,
 				9A55F9FF238F171E00B38A32 /* SceneDelegate.swift in Sources */,
 				3D04C6642603F85F00BD559B /* SupportCell.swift in Sources */,
 			);

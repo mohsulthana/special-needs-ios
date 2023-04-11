@@ -16,6 +16,7 @@ class SelectGradeVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imgvBook: UIImageView!
 
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var supportUsButton: UIButton!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
@@ -35,7 +36,6 @@ class SelectGradeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +54,10 @@ class SelectGradeVC: UIViewController {
     
     // MARK: - Public Methods
     
+    @IBAction func handleLoginButton(_ sender: Any) {
+        let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController")
+        present(loginVC, animated: true)
+    }
     // MARK: - Custom Methods
     
     private func setupUI() {
