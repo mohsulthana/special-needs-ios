@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "support_help.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
