@@ -46,6 +46,7 @@ class AuthService {
                     "email": email,
                 ]) { error in
                     if let error {
+                        print(error)
                         completion(false, error)
                         return
                     }
@@ -64,5 +65,37 @@ class AuthService {
             print(error)
             
         }
+    }
+    
+    public func signOut(completion: @escaping (Error?) -> Void) {
+        do {
+            try Auth.auth().signOut()
+            completion(nil)
+        } catch let error {
+            completion(error)
+        }
+    }
+    
+    public func fetchUser(completion: @escaping (User?, Error?) -> Void) {
+        guard let userUID = Auth.auth().currentUser?.uid else { return }
+        
+        let db = Firestore.firestore()
+        
+        db.collection("users")
+            .document(userUID)
+            .getDocument { snapshot, error in
+                if let error {
+                    completion(nil, error)
+                    return
+                }
+                
+                if let snapshot,
+                   let snapshotData = snapshot.data(),
+                   let username = snapshotData["username"] as? String,
+                   let email = snapshotData["email"] as? String {
+                    let user = User(UID: userUID, email: email, username: username)
+                    completion(user, nil)
+                }
+            }
     }
 }

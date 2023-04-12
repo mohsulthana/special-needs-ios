@@ -91,6 +91,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Log in"/>
                                 <connections>
                                     <action selector="handleLoginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZNz-eD-200"/>
+                                    <segue destination="1yW-Tg-0cq" kind="show" id="j5Q-hw-LQO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -127,18 +128,18 @@
         <!--Login View Controller-->
         <scene sceneID="Tqd-hq-qJR">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="1yW-Tg-0cq" customClass="LoginViewController" customModule="SPED_Goals" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" modalPresentationStyle="currentContext" id="1yW-Tg-0cq" customClass="LoginViewController" customModule="SPED_Goals" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rcD-Fi-zG1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ydr-1b-a6U">
-                                <rect key="frame" x="16" y="125" width="382" height="34"/>
+                                <rect key="frame" x="16" y="169" width="382" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ko0-AW-rmC">
-                                <rect key="frame" x="16" y="183" width="382" height="34"/>
+                                <rect key="frame" x="16" y="227" width="382" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
@@ -151,7 +152,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In to SPED Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icP-Iy-xgI">
-                                <rect key="frame" x="117" y="72" width="180" height="21"/>
+                                <rect key="frame" x="117" y="116" width="180" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -173,6 +174,7 @@
                             <constraint firstItem="Ydr-1b-a6U" firstAttribute="top" secondItem="icP-Iy-xgI" secondAttribute="bottom" constant="32" id="z8A-GQ-v8m"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="yHY-P9-K4g"/>
                     <connections>
                         <outlet property="emailTextfield" destination="Ydr-1b-a6U" id="5o0-ah-7wp"/>
                         <outlet property="loginButton" destination="k9j-QO-Qgg" id="L23-9B-b4q"/>
@@ -183,20 +185,61 @@
             </objects>
             <point key="canvasLocation" x="1813" y="837"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="dfv-C9-Pf3">
             <objects>
-                <viewController storyboardIdentifier="ProfileStoryboard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MRc-A7-1Ts" customClass="ProfileViewController" customModule="SPED_Goals" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileStoryboard" title="Profile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MRc-A7-1Ts" customClass="ProfileViewController" customModule="SPED_Goals" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6k9-Jg-mAd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="rXf-LN-Wra">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YoV-JY-SYS">
+                                <rect key="frame" x="164" y="188" width="86" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMP-oe-gPl">
+                                <rect key="frame" x="166.5" y="225" width="81" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emv-bd-8g6">
+                                <rect key="frame" x="169.5" y="430.5" width="75" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <connections>
+                                    <action selector="handleSignout:" destination="MRc-A7-1Ts" eventType="touchUpInside" id="an9-cD-Gez"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Llh-kQ-ynT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vMP-oe-gPl" firstAttribute="centerX" secondItem="6k9-Jg-mAd" secondAttribute="centerX" id="42M-OT-eYQ"/>
+                            <constraint firstItem="vMP-oe-gPl" firstAttribute="top" secondItem="YoV-JY-SYS" secondAttribute="bottom" constant="16" id="T7u-I7-iIi"/>
+                            <constraint firstItem="YoV-JY-SYS" firstAttribute="top" secondItem="Llh-kQ-ynT" secondAttribute="top" constant="140" id="WxP-Hi-Xe5"/>
+                            <constraint firstItem="emv-bd-8g6" firstAttribute="centerY" secondItem="6k9-Jg-mAd" secondAttribute="centerY" id="XDb-Yh-K8n"/>
+                            <constraint firstItem="rXf-LN-Wra" firstAttribute="centerY" secondItem="6k9-Jg-mAd" secondAttribute="centerY" id="bUk-8k-S5a"/>
+                            <constraint firstItem="YoV-JY-SYS" firstAttribute="centerX" secondItem="6k9-Jg-mAd" secondAttribute="centerX" id="dxd-g4-kKc"/>
+                            <constraint firstItem="emv-bd-8g6" firstAttribute="centerX" secondItem="6k9-Jg-mAd" secondAttribute="centerX" id="gK6-7X-z9x"/>
+                            <constraint firstItem="rXf-LN-Wra" firstAttribute="centerX" secondItem="6k9-Jg-mAd" secondAttribute="centerX" id="j9K-qb-Lql"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Zt3-tP-T88"/>
+                    <connections>
+                        <outlet property="email" destination="vMP-oe-gPl" id="RsV-JT-Dtw"/>
+                        <outlet property="spinner" destination="rXf-LN-Wra" id="Orx-32-5hq"/>
+                        <outlet property="username" destination="YoV-JY-SYS" id="fh3-lt-UNY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gRG-er-tZG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2651" y="836"/>
+            <point key="canvasLocation" x="3529" y="858"/>
         </scene>
         <!--Pick Subject-->
         <scene sceneID="iwe-nb-R0f">
@@ -327,6 +370,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Goals" id="YZY-1V-P8l">
+                        <barButtonItem key="leftBarButtonItem" title="Profile" image="person.crop.circle" catalog="system" id="AUM-jy-AQG"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="K40-t4-PGR">
                             <connections>
                                 <action selector="btnAddGoalAction" destination="uFd-Gr-m5Y" id="yvk-nc-Vzn"/>
@@ -514,6 +558,7 @@
         <image name="backward" catalog="system" width="128" height="77"/>
         <image name="cubs_grayBg" width="156" height="65"/>
         <image name="icon_right_arrow" width="8" height="14"/>
+        <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <image name="support_group" width="960" height="405"/>
         <image name="support_help" width="720" height="720"/>
         <systemColor name="systemBackgroundColor">

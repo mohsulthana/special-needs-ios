@@ -10,9 +10,25 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
+    @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var email: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Profieee")
+        
+        spinner.isHidden = false
+        spinner.startAnimating()
+        AuthService.shared.fetchUser { user, error in
+            guard let user else {
+                return
+            }
+            self.spinner.stopAnimating()
+            self.spinner.isHidden = true
+            self.username.text = user.username
+            self.email.text = user.email
+        }
     }
     
 
@@ -26,4 +42,14 @@ class ProfileViewController: UIViewController {
     }
     */
 
+    @IBAction func handleSignout(_ sender: Any) {
+        AuthService.shared.signOut { error in
+            if let error {
+                print("error")
+                return
+            }
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "SelectGradeVC") as! SelectGradeVC
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }

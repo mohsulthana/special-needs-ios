@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1755B11B29E6B2ED00D2BA3C /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755B11A29E6B2ED00D2BA3C /* Validator.swift */; };
+		1755B11D29E6B50B00D2BA3C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755B11C29E6B50B00D2BA3C /* User.swift */; };
 		17C838E129E56FCE00FE5BBC /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 17C838E029E56FCE00FE5BBC /* FirebaseAnalytics */; };
 		17C838E329E56FCE00FE5BBC /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 17C838E229E56FCE00FE5BBC /* FirebaseAnalyticsOnDeviceConversion */; };
 		17C838E529E56FCE00FE5BBC /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 17C838E429E56FCE00FE5BBC /* FirebaseAnalyticsSwift */; };
@@ -64,6 +66,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1755B11A29E6B2ED00D2BA3C /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		1755B11C29E6B50B00D2BA3C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		17C8391629E5A44D00FE5BBC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		17C8391829E5A65200FE5BBC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		17C8391A29E5AED300FE5BBC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -187,6 +191,7 @@
 				17C8391629E5A44D00FE5BBC /* GoogleService-Info.plist */,
 				9A55F9DB238BCC3500B38A32 /* Info.plist */,
 				17C8391A29E5AED300FE5BBC /* AuthService.swift */,
+				1755B11A29E6B2ED00D2BA3C /* Validator.swift */,
 			);
 			path = SpecialNeedsApp;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 				9A55F9F3238D15BF00B38A32 /* Goal.swift */,
 				17C8391C29E5AFBB00FE5BBC /* RegisterUserRequest.swift */,
 				17C8391E29E5BFB200FE5BBC /* LoginUserRequest.swift */,
+				1755B11C29E6B50B00D2BA3C /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -418,11 +424,13 @@
 				9A55F9FB238D7B7600B38A32 /* GoalsCell.swift in Sources */,
 				9A55F9E4238BD54200B38A32 /* SelectYourGradeCell.swift in Sources */,
 				17C8391D29E5AFBB00FE5BBC /* RegisterUserRequest.swift in Sources */,
+				1755B11B29E6B2ED00D2BA3C /* Validator.swift in Sources */,
 				17C8391929E5A65200FE5BBC /* LoginViewController.swift in Sources */,
 				9A55F9F4238D15BF00B38A32 /* Goal.swift in Sources */,
 				17C8392129E5C3DC00FE5BBC /* ProfileViewController.swift in Sources */,
 				9A55F9FF238F171E00B38A32 /* SceneDelegate.swift in Sources */,
 				3D04C6642603F85F00BD559B /* SupportCell.swift in Sources */,
+				1755B11D29E6B50B00D2BA3C /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

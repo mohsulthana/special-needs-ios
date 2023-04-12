@@ -29,6 +29,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
 
         FirebaseApp.configure()
+        
+//        let userRequest = RegisterUserRequest(username: "mohammad", email: "mohsulthana@gmail.com", password: "1234567")
+//        
+//        AuthService.shared.registerUser(with: userRequest) { isRegistered, error in
+//            if let error {
+//                print("Error \(error)")
+//            }
+//            
+//            print("Is registered \(isRegistered)")
+//        }
 
         setupRealm()
 
