@@ -9,7 +9,7 @@
 import Foundation
 
 struct RegisterUserRequest {
-    let username: String
+    let fullname: String
     let email: String
     let password: String
 }

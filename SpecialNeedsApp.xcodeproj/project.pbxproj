@@ -49,6 +49,8 @@
 		17C8391F29E5BFB200FE5BBC /* LoginUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C8391E29E5BFB200FE5BBC /* LoginUserRequest.swift */; };
 		17D2FC9029E83BCA0043F0DF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D2FC8F29E83BCA0043F0DF /* UIColor.swift */; };
 		17D2FC9229E83C750043F0DF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D2FC9129E83C750043F0DF /* RegisterViewController.swift */; };
+		17D2FC9629E865D60043F0DF /* PasswordTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D2FC9529E865D60043F0DF /* PasswordTextfield.swift */; };
+		17D2FC9829E866930043F0DF /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D2FC9729E866930043F0DF /* UITextField.swift */; };
 		3D04C6642603F85F00BD559B /* SupportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04C6632603F85F00BD559B /* SupportCell.swift */; };
 		3D04C6672603F91800BD559B /* SupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04C6662603F91800BD559B /* SupportVC.swift */; };
 		3DF3BBDB263A93B50015CF7E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF3BBDA263A93B50015CF7E /* StoreKit.framework */; };
@@ -87,6 +89,8 @@
 		17C8391E29E5BFB200FE5BBC /* LoginUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserRequest.swift; sourceTree = "<group>"; };
 		17D2FC8F29E83BCA0043F0DF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		17D2FC9129E83C750043F0DF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		17D2FC9529E865D60043F0DF /* PasswordTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextfield.swift; sourceTree = "<group>"; };
+		17D2FC9729E866930043F0DF /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		1E83A9BF421CBD65186C935D /* Pods-SpecialNeedsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialNeedsApp.debug.xcconfig"; path = "Target Support Files/Pods-SpecialNeedsApp/Pods-SpecialNeedsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		25F0148D5FEDF3775568D1D5 /* Pods-SpecialNeedsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialNeedsApp.release.xcconfig"; path = "Target Support Files/Pods-SpecialNeedsApp/Pods-SpecialNeedsApp.release.xcconfig"; sourceTree = "<group>"; };
 		3D04C6632603F85F00BD559B /* SupportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportCell.swift; sourceTree = "<group>"; };
@@ -181,11 +185,12 @@
 			path = Tab;
 			sourceTree = "<group>";
 		};
-		17D2FC8E29E83BB20043F0DF /* New Group */ = {
+		17D2FC8E29E83BB20043F0DF /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				17D2FC9529E865D60043F0DF /* PasswordTextfield.swift */,
 			);
-			path = "New Group";
+			path = Components;
 			sourceTree = "<group>";
 		};
 		9A55F9C1238BCC3400B38A32 = {
@@ -209,7 +214,7 @@
 		9A55F9CC238BCC3400B38A32 /* SpecialNeedsApp */ = {
 			isa = PBXGroup;
 			children = (
-				17D2FC8E29E83BB20043F0DF /* New Group */,
+				17D2FC8E29E83BB20043F0DF /* Components */,
 				9A55F9FE238F171E00B38A32 /* SceneDelegate.swift */,
 				9A55F9CD238BCC3400B38A32 /* AppDelegate.swift */,
 				9A55F9ED238D154200B38A32 /* Controler */,
@@ -283,6 +288,7 @@
 			children = (
 				9A55F9F6238D1BBD00B38A32 /* Object+Extensions.swift */,
 				17D2FC8F29E83BCA0043F0DF /* UIColor.swift */,
+				17D2FC9729E866930043F0DF /* UITextField.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -454,6 +460,7 @@
 				9A55F9EC238D130500B38A32 /* SelectGradeVC.swift in Sources */,
 				17C6A0B129E7A9820032B90A /* TeacherViewController.swift in Sources */,
 				17C6A0B329E7AD550032B90A /* ProfileViewController.swift in Sources */,
+				17D2FC9629E865D60043F0DF /* PasswordTextfield.swift in Sources */,
 				9A55F9CE238BCC3400B38A32 /* AppDelegate.swift in Sources */,
 				17C8391F29E5BFB200FE5BBC /* LoginUserRequest.swift in Sources */,
 				9A55F9F9238D79DC00B38A32 /* GoalsVC.swift in Sources */,
@@ -461,6 +468,7 @@
 				17C6A0AA29E79F9B0032B90A /* ForgotPasswordViewController.swift in Sources */,
 				3DF3BBDE263AA08D0015CF7E /* BillingController.swift in Sources */,
 				AF48D5EF2406A482008B2F90 /* Utils.swift in Sources */,
+				17D2FC9829E866930043F0DF /* UITextField.swift in Sources */,
 				17C6A0AF29E7A95E0032B90A /* StudentViewController.swift in Sources */,
 				9A55F9E8238BDDCD00B38A32 /* PickSubjectCell.swift in Sources */,
 				9A55F9F0238D15A600B38A32 /* Grade.swift in Sources */,

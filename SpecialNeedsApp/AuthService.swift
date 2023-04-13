@@ -22,7 +22,7 @@ class AuthService {
             - completion:  A completion with two values
      */
     public func registerUser(with userRequest: RegisterUserRequest, completion: @escaping (Bool, Error?) -> Void) {
-        let username = userRequest.username
+        let fullname = userRequest.fullname
         let email = userRequest.email
         let password = userRequest.password
 
@@ -42,7 +42,7 @@ class AuthService {
             db.collection("users")
                 .document(resultUser.uid)
                 .setData([
-                    "username": username,
+                    "fullname": fullname,
                     "email": email,
                 ]) { error in
                     if let error {

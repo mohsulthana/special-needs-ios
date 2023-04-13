@@ -16,8 +16,6 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        spinner.isHidden = true
-        navigationItem.title = "Log In"
         
         setupNavigationBar()
         
@@ -53,23 +51,21 @@ class LoginViewController: UIViewController {
         let password = passwordTextfield.text ?? ""
 
         let loginRequest = LoginUserRequest(email: email, password: password)
-        spinner.isHidden = false
         spinner.startAnimating()
 
         AuthService.shared.loginUser(with: loginRequest) { wasLoggedIn, error in
             if let error {
-                print(error.localizedDescription)
+                self.view.makeToast(error.localizedDescription)
                 self.spinner.stopAnimating()
-                self.spinner.isHidden = true
                 return
             }
 
             if wasLoggedIn {
                 DispatchQueue.main.async {
-                    self.view.makeToast("Logged In Successfully")
                     let viewController = self.storyboard?.instantiateViewController(withIdentifier: "TabbarStoryboard") as! UITabBarController
                     self.view.window?.rootViewController = viewController
                     self.view.window?.makeKeyAndVisible()
+                    self.view.makeToast("Logged In Successfully")
                     self.spinner.stopAnimating()
                 }
             }
