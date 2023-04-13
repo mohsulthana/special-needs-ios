@@ -2,54 +2,64 @@
 //  ProfileViewController.swift
 //  SpecialNeedsApp
 //
-//  Created by Mohammad Sulthan on 11/04/23.
+//  Created by Mohammad Sulthan on 13/04/23.
 //  Copyright © 2023 Gustavo Ortega. All rights reserved.
 //
 
 import UIKit
+import Toast
 
 class ProfileViewController: UIViewController {
 
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
-    
-    @IBOutlet weak var username: UILabel!
-    @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        spinner.isHidden = false
-        spinner.startAnimating()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         AuthService.shared.fetchUser { user, error in
-            guard let user else {
+            if let error {
+                self.view.makeToast("Error happened. See log for more info")
+                print(error)
                 return
             }
-            self.spinner.stopAnimating()
-            self.spinner.isHidden = true
-            self.username.text = user.username
-            self.email.text = user.email
+            
+            guard let user else {
+                self.view.makeToast("Error happened. See log for more info")
+                print(error?.localizedDescription ?? "")
+                return
+            }
+            
+            self.nameLabel.text = user.username
+            self.emailLabel.text = user.email
         }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    @IBAction func handleSignout(_ sender: Any) {
-        AuthService.shared.signOut { error in
-            if let error {
-                print("error")
-                return
+    @IBAction func handleSignOut(_ sender: Any) {
+        let alert = UIAlertController(title: "Sign Out", message: "Are you sure to sign out?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in
+            self.dismiss(animated: true)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Confirm", style: .destructive, handler: { (_) in
+            AuthService.shared.signOut { error in
+                if let error {
+                    self.view.makeToast("Error happened. See log for more info")
+                    print(error)
+                    return
+                }
+                
+                let SelectGradeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SelectGradeVC")
+                self.navigationController?.pushViewController(SelectGradeVC, animated: true)
+                
+                self.view.makeToast("Successfully signed out")
             }
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "SelectGradeVC") as! SelectGradeVC
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        }))
+        
+        present(alert, animated: true, completion: nil)
     }
 }

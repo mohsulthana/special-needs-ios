@@ -56,14 +56,22 @@ class AuthService {
         }
     }
     
-    public func loginUser(with loginRequest: LoginUserRequest, completion: @escaping (Bool, Error) -> Void) {
+    public func loginUser(with loginRequest: LoginUserRequest, completion: @escaping (Bool, Error?) -> Void) {
         let email = loginRequest.email
         let password = loginRequest.password
         
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
-            print(result?.user)
-            print(error)
+            if let error {
+                completion(false, error)
+                return
+            }
             
+            guard let result else {
+                completion(false, nil)
+                return
+            }
+            
+            completion(true, nil)
         }
     }
     
@@ -72,6 +80,12 @@ class AuthService {
             try Auth.auth().signOut()
             completion(nil)
         } catch let error {
+            completion(error)
+        }
+    }
+    
+    public func forgotPassword(with email: String, completion: @escaping(Error?) -> Void) {
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
             completion(error)
         }
     }

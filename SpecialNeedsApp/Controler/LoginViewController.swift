@@ -9,37 +9,70 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-    
-    @IBOutlet weak var emailTextfield: UITextField!
-    @IBOutlet weak var passwordTextfield: UITextField!
-    
-    @IBOutlet weak var loginButton: UIButton!
-    
-    
+    @IBOutlet var emailTextfield: UITextField!
+    @IBOutlet var passwordTextfield: UITextField!
+    @IBOutlet var spinner: UIActivityIndicatorView!
+    @IBOutlet var loginButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        spinner.isHidden = true
+        navigationItem.title = "Log In"
+        
+        setupNavigationBar()
+        
+        setupUI()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupUI() {
+        loginButton.backgroundColor = UIColor(hexFromString: "#124E61", alpha: 1)
+        loginButton.tintColor = UIColor(hexFromString: "#124E61", alpha: 1)
+        loginButton.layer.cornerRadius = 12
+        
+        let emailPadding = UIView(frame: CGRectMake(2, 2, 8, self.emailTextfield.frame.height))
+        emailTextfield.leftView = emailPadding
+        emailTextfield.leftViewMode = .always
+        
+        let passwordPadding = UIView(frame: CGRectMake(2, 2, 8, self.passwordTextfield.frame.height))
+        passwordTextfield.leftView = passwordPadding
+        passwordTextfield.leftViewMode = .always
     }
-    */
+
+    func setupNavigationBar() {
+        let backButton = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(backButtonPressed))
+        backButton.tintColor = UIColor(hexFromString: "#124E61", alpha: 1)
+        navigationItem.leftBarButtonItem = backButton
+    }
+
+    @objc func backButtonPressed() {
+        navigationController?.dismiss(animated: true)
+    }
+
     @IBAction func handleLoginButton(_ sender: Any) {
         let email = emailTextfield.text ?? ""
         let password = passwordTextfield.text ?? ""
-        
+
         let loginRequest = LoginUserRequest(email: email, password: password)
-        
+        spinner.isHidden = false
+        spinner.startAnimating()
+
         AuthService.shared.loginUser(with: loginRequest) { wasLoggedIn, error in
-            print(wasLoggedIn)
+            if let error {
+                print(error.localizedDescription)
+                self.spinner.stopAnimating()
+                self.spinner.isHidden = true
+                return
+            }
+
+            if wasLoggedIn {
+                DispatchQueue.main.async {
+                    self.view.makeToast("Logged In Successfully")
+                    let viewController = self.storyboard?.instantiateViewController(withIdentifier: "TabbarStoryboard") as! UITabBarController
+                    self.view.window?.rootViewController = viewController
+                    self.view.window?.makeKeyAndVisible()
+                    self.spinner.stopAnimating()
+                }
+            }
         }
     }
 }

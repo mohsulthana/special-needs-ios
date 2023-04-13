@@ -15,8 +15,6 @@ class SelectGradeVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imgvBook: UIImageView!
-
-    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var supportUsButton: UIButton!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
@@ -53,10 +51,14 @@ class SelectGradeVC: UIViewController {
     // MARK: - Notification Methods
     
     // MARK: - Public Methods
-    
     @IBAction func handleLoginButton(_ sender: Any) {
-        let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController")
-        present(loginVC, animated: true)
+
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginStoryboard") as? LoginViewController {
+            
+            let navigationVc = UINavigationController(rootViewController: vc)
+            navigationVc.modalPresentationStyle = .fullScreen
+            self.present(navigationVc, animated: true, completion: nil)
+        }
     }
     // MARK: - Custom Methods
     
@@ -74,7 +76,6 @@ class SelectGradeVC: UIViewController {
     @IBAction func supportUsTaped(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SupportVC") as! SupportVC
         self.navigationController?.pushViewController(vc, animated: true)
-    
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {

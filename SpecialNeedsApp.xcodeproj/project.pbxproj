@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		1755B11B29E6B2ED00D2BA3C /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755B11A29E6B2ED00D2BA3C /* Validator.swift */; };
 		1755B11D29E6B50B00D2BA3C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755B11C29E6B50B00D2BA3C /* User.swift */; };
+		17C6A0AA29E79F9B0032B90A /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6A0A929E79F9B0032B90A /* ForgotPasswordViewController.swift */; };
+		17C6A0AD29E7A9350032B90A /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6A0AC29E7A9350032B90A /* TabViewController.swift */; };
+		17C6A0AF29E7A95E0032B90A /* StudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6A0AE29E7A95E0032B90A /* StudentViewController.swift */; };
+		17C6A0B129E7A9820032B90A /* TeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6A0B029E7A9820032B90A /* TeacherViewController.swift */; };
+		17C6A0B329E7AD550032B90A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6A0B229E7AD550032B90A /* ProfileViewController.swift */; };
+		17C6A0B629E7AED90032B90A /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 17C6A0B529E7AED90032B90A /* Toast */; };
 		17C838E129E56FCE00FE5BBC /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 17C838E029E56FCE00FE5BBC /* FirebaseAnalytics */; };
 		17C838E329E56FCE00FE5BBC /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 17C838E229E56FCE00FE5BBC /* FirebaseAnalyticsOnDeviceConversion */; };
 		17C838E529E56FCE00FE5BBC /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 17C838E429E56FCE00FE5BBC /* FirebaseAnalyticsSwift */; };
@@ -41,7 +47,8 @@
 		17C8391B29E5AED300FE5BBC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C8391A29E5AED300FE5BBC /* AuthService.swift */; };
 		17C8391D29E5AFBB00FE5BBC /* RegisterUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C8391C29E5AFBB00FE5BBC /* RegisterUserRequest.swift */; };
 		17C8391F29E5BFB200FE5BBC /* LoginUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C8391E29E5BFB200FE5BBC /* LoginUserRequest.swift */; };
-		17C8392129E5C3DC00FE5BBC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C8392029E5C3DC00FE5BBC /* ProfileViewController.swift */; };
+		17D2FC9029E83BCA0043F0DF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D2FC8F29E83BCA0043F0DF /* UIColor.swift */; };
+		17D2FC9229E83C750043F0DF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D2FC9129E83C750043F0DF /* RegisterViewController.swift */; };
 		3D04C6642603F85F00BD559B /* SupportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04C6632603F85F00BD559B /* SupportCell.swift */; };
 		3D04C6672603F91800BD559B /* SupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04C6662603F91800BD559B /* SupportVC.swift */; };
 		3DF3BBDB263A93B50015CF7E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF3BBDA263A93B50015CF7E /* StoreKit.framework */; };
@@ -68,12 +75,18 @@
 /* Begin PBXFileReference section */
 		1755B11A29E6B2ED00D2BA3C /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		1755B11C29E6B50B00D2BA3C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		17C6A0A929E79F9B0032B90A /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		17C6A0AC29E7A9350032B90A /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		17C6A0AE29E7A95E0032B90A /* StudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewController.swift; sourceTree = "<group>"; };
+		17C6A0B029E7A9820032B90A /* TeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherViewController.swift; sourceTree = "<group>"; };
+		17C6A0B229E7AD550032B90A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		17C8391629E5A44D00FE5BBC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		17C8391829E5A65200FE5BBC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		17C8391A29E5AED300FE5BBC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		17C8391C29E5AFBB00FE5BBC /* RegisterUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserRequest.swift; sourceTree = "<group>"; };
 		17C8391E29E5BFB200FE5BBC /* LoginUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserRequest.swift; sourceTree = "<group>"; };
-		17C8392029E5C3DC00FE5BBC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		17D2FC8F29E83BCA0043F0DF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		17D2FC9129E83C750043F0DF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		1E83A9BF421CBD65186C935D /* Pods-SpecialNeedsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialNeedsApp.debug.xcconfig"; path = "Target Support Files/Pods-SpecialNeedsApp/Pods-SpecialNeedsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		25F0148D5FEDF3775568D1D5 /* Pods-SpecialNeedsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialNeedsApp.release.xcconfig"; path = "Target Support Files/Pods-SpecialNeedsApp/Pods-SpecialNeedsApp.release.xcconfig"; sourceTree = "<group>"; };
 		3D04C6632603F85F00BD559B /* SupportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportCell.swift; sourceTree = "<group>"; };
@@ -124,6 +137,7 @@
 				17C838FB29E56FCE00FE5BBC /* FirebaseFirestoreCombine-Community in Frameworks */,
 				17C838F329E56FCE00FE5BBC /* FirebaseDatabase in Frameworks */,
 				17C8390D29E56FCE00FE5BBC /* FirebasePerformance in Frameworks */,
+				17C6A0B629E7AED90032B90A /* Toast in Frameworks */,
 				17C838E929E56FCE00FE5BBC /* FirebaseAppCheck in Frameworks */,
 				17C838E329E56FCE00FE5BBC /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				17C8390529E56FCE00FE5BBC /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
@@ -159,6 +173,21 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		17C6A0AB29E7A91B0032B90A /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				17C6A0AC29E7A9350032B90A /* TabViewController.swift */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
+		17D2FC8E29E83BB20043F0DF /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		9A55F9C1238BCC3400B38A32 = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +209,7 @@
 		9A55F9CC238BCC3400B38A32 /* SpecialNeedsApp */ = {
 			isa = PBXGroup;
 			children = (
+				17D2FC8E29E83BB20043F0DF /* New Group */,
 				9A55F9FE238F171E00B38A32 /* SceneDelegate.swift */,
 				9A55F9CD238BCC3400B38A32 /* AppDelegate.swift */,
 				9A55F9ED238D154200B38A32 /* Controler */,
@@ -223,13 +253,18 @@
 		9A55F9ED238D154200B38A32 /* Controler */ = {
 			isa = PBXGroup;
 			children = (
+				17C6A0AB29E7A91B0032B90A /* Tab */,
 				9A55F9E2238BD52200B38A32 /* Cell */,
 				9A55F9EB238D130500B38A32 /* SelectGradeVC.swift */,
 				9A55F9E5238BDD2B00B38A32 /* PickSubjectVC.swift */,
 				9A55F9F8238D79DC00B38A32 /* GoalsVC.swift */,
 				3D04C6662603F91800BD559B /* SupportVC.swift */,
 				17C8391829E5A65200FE5BBC /* LoginViewController.swift */,
-				17C8392029E5C3DC00FE5BBC /* ProfileViewController.swift */,
+				17C6A0A929E79F9B0032B90A /* ForgotPasswordViewController.swift */,
+				17C6A0AE29E7A95E0032B90A /* StudentViewController.swift */,
+				17C6A0B029E7A9820032B90A /* TeacherViewController.swift */,
+				17C6A0B229E7AD550032B90A /* ProfileViewController.swift */,
+				17D2FC9129E83C750043F0DF /* RegisterViewController.swift */,
 			);
 			path = Controler;
 			sourceTree = "<group>";
@@ -247,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				9A55F9F6238D1BBD00B38A32 /* Object+Extensions.swift */,
+				17D2FC8F29E83BCA0043F0DF /* UIColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -306,6 +342,7 @@
 				17C8391029E56FCE00FE5BBC /* FirebaseRemoteConfigSwift */,
 				17C8391229E56FCE00FE5BBC /* FirebaseStorage */,
 				17C8391429E56FCE00FE5BBC /* FirebaseStorageCombine-Community */,
+				17C6A0B529E7AED90032B90A /* Toast */,
 			);
 			productName = SpecialNeedsApp;
 			productReference = 9A55F9CA238BCC3400B38A32 /* SPED Goals.app */;
@@ -337,6 +374,7 @@
 			mainGroup = 9A55F9C1238BCC3400B38A32;
 			packageReferences = (
 				17C838DF29E56FCE00FE5BBC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				17C6A0B429E7AED90032B90A /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = 9A55F9CB238BCC3400B38A32 /* Products */;
 			projectDirPath = "";
@@ -409,15 +447,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A55F9F2238D15B700B38A32 /* Subject.swift in Sources */,
+				17D2FC9029E83BCA0043F0DF /* UIColor.swift in Sources */,
 				9A55F9E6238BDD2B00B38A32 /* PickSubjectVC.swift in Sources */,
 				3D04C6672603F91800BD559B /* SupportVC.swift in Sources */,
 				17C8391B29E5AED300FE5BBC /* AuthService.swift in Sources */,
 				9A55F9EC238D130500B38A32 /* SelectGradeVC.swift in Sources */,
+				17C6A0B129E7A9820032B90A /* TeacherViewController.swift in Sources */,
+				17C6A0B329E7AD550032B90A /* ProfileViewController.swift in Sources */,
 				9A55F9CE238BCC3400B38A32 /* AppDelegate.swift in Sources */,
 				17C8391F29E5BFB200FE5BBC /* LoginUserRequest.swift in Sources */,
 				9A55F9F9238D79DC00B38A32 /* GoalsVC.swift in Sources */,
+				17C6A0AD29E7A9350032B90A /* TabViewController.swift in Sources */,
+				17C6A0AA29E79F9B0032B90A /* ForgotPasswordViewController.swift in Sources */,
 				3DF3BBDE263AA08D0015CF7E /* BillingController.swift in Sources */,
 				AF48D5EF2406A482008B2F90 /* Utils.swift in Sources */,
+				17C6A0AF29E7A95E0032B90A /* StudentViewController.swift in Sources */,
 				9A55F9E8238BDDCD00B38A32 /* PickSubjectCell.swift in Sources */,
 				9A55F9F0238D15A600B38A32 /* Grade.swift in Sources */,
 				9A55F9F7238D1BBD00B38A32 /* Object+Extensions.swift in Sources */,
@@ -427,10 +471,10 @@
 				1755B11B29E6B2ED00D2BA3C /* Validator.swift in Sources */,
 				17C8391929E5A65200FE5BBC /* LoginViewController.swift in Sources */,
 				9A55F9F4238D15BF00B38A32 /* Goal.swift in Sources */,
-				17C8392129E5C3DC00FE5BBC /* ProfileViewController.swift in Sources */,
 				9A55F9FF238F171E00B38A32 /* SceneDelegate.swift in Sources */,
 				3D04C6642603F85F00BD559B /* SupportCell.swift in Sources */,
 				1755B11D29E6B50B00D2BA3C /* User.swift in Sources */,
+				17D2FC9229E83C750043F0DF /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,6 +682,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		17C6A0B429E7AED90032B90A /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		17C838DF29E56FCE00FE5BBC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -649,6 +701,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		17C6A0B529E7AED90032B90A /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17C6A0B429E7AED90032B90A /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
 		17C838E029E56FCE00FE5BBC /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 17C838DF29E56FCE00FE5BBC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

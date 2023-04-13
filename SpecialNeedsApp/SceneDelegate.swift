@@ -46,7 +46,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window?.rootViewController = baseNC
         } else {
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let baseNC = mainStoryboard.instantiateViewController(withIdentifier: "ProfileStoryboard")
+            let baseNC = mainStoryboard.instantiateViewController(withIdentifier: "TabbarStoryboard")
             window?.rootViewController = baseNC
         }
     }
