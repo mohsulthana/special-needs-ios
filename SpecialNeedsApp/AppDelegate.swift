@@ -11,6 +11,7 @@ import FirebaseCore
 import FirebaseFirestore
 import RealmSwift
 import UIKit
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
 
         FirebaseApp.configure()
+        IQKeyboardManager.shared.enable = true
         
 //        let userRequest = RegisterUserRequest(username: "mohammad", email: "mohsulthana@gmail.com", password: "1234567")
 //        

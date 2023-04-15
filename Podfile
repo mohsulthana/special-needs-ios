@@ -10,5 +10,5 @@ target 'SpecialNeedsApp' do
  pod 'RealmSwift'
 
  pod 'SwiftyJSON', '~> 5.0.0'
- 
+ pod 'IQKeyboardManagerSwift'
 end
