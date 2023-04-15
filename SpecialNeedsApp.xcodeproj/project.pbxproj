@@ -53,7 +53,6 @@
 		17D2FC9829E866930043F0DF /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D2FC9729E866930043F0DF /* UITextField.swift */; };
 		3D04C6642603F85F00BD559B /* SupportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04C6632603F85F00BD559B /* SupportCell.swift */; };
 		3D04C6672603F91800BD559B /* SupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04C6662603F91800BD559B /* SupportVC.swift */; };
-		3DF3BBDB263A93B50015CF7E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF3BBDA263A93B50015CF7E /* StoreKit.framework */; };
 		3DF3BBDE263AA08D0015CF7E /* BillingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF3BBDD263AA08D0015CF7E /* BillingController.swift */; };
 		9A55F9CE238BCC3400B38A32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F9CD238BCC3400B38A32 /* AppDelegate.swift */; };
 		9A55F9D5238BCC3400B38A32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A55F9D3238BCC3400B38A32 /* Main.storyboard */; };
@@ -71,10 +70,11 @@
 		9A55F9FB238D7B7600B38A32 /* GoalsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F9FA238D7B7600B38A32 /* GoalsCell.swift */; };
 		9A55F9FF238F171E00B38A32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F9FE238F171E00B38A32 /* SceneDelegate.swift */; };
 		AF48D5EF2406A482008B2F90 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF48D5EE2406A482008B2F90 /* Utils.swift */; };
-		EA97EF425EB0789A63ADFA4B /* Pods_SpecialNeedsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5930E6DC6AF3C7EB1EE4232D /* Pods_SpecialNeedsApp.framework */; };
+		AF5E4443ABF5D3DC2A6B1FAE /* Pods_SpecialNeedsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87CA8E0E5DC036FF5E7B3517 /* Pods_SpecialNeedsApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1064DF49C0CD30A7BA059F6A /* Pods-SpecialNeedsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialNeedsApp.debug.xcconfig"; path = "Target Support Files/Pods-SpecialNeedsApp/Pods-SpecialNeedsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		1755B11A29E6B2ED00D2BA3C /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		1755B11C29E6B50B00D2BA3C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		17C6A0A929E79F9B0032B90A /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -91,13 +91,11 @@
 		17D2FC9129E83C750043F0DF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		17D2FC9529E865D60043F0DF /* PasswordTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextfield.swift; sourceTree = "<group>"; };
 		17D2FC9729E866930043F0DF /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
-		1E83A9BF421CBD65186C935D /* Pods-SpecialNeedsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialNeedsApp.debug.xcconfig"; path = "Target Support Files/Pods-SpecialNeedsApp/Pods-SpecialNeedsApp.debug.xcconfig"; sourceTree = "<group>"; };
-		25F0148D5FEDF3775568D1D5 /* Pods-SpecialNeedsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialNeedsApp.release.xcconfig"; path = "Target Support Files/Pods-SpecialNeedsApp/Pods-SpecialNeedsApp.release.xcconfig"; sourceTree = "<group>"; };
 		3D04C6632603F85F00BD559B /* SupportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportCell.swift; sourceTree = "<group>"; };
 		3D04C6662603F91800BD559B /* SupportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportVC.swift; sourceTree = "<group>"; };
-		3DF3BBDA263A93B50015CF7E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3DF3BBDD263AA08D0015CF7E /* BillingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillingController.swift; sourceTree = "<group>"; };
-		5930E6DC6AF3C7EB1EE4232D /* Pods_SpecialNeedsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpecialNeedsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		743105C38BA08616CD45A4A3 /* Pods-SpecialNeedsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialNeedsApp.release.xcconfig"; path = "Target Support Files/Pods-SpecialNeedsApp/Pods-SpecialNeedsApp.release.xcconfig"; sourceTree = "<group>"; };
+		87CA8E0E5DC036FF5E7B3517 /* Pods_SpecialNeedsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpecialNeedsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A55F9CA238BCC3400B38A32 /* SPED Goals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SPED Goals.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A55F9CD238BCC3400B38A32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A55F9D4238BCC3400B38A32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,11 +122,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				17C8390B29E56FCE00FE5BBC /* FirebaseMessaging in Frameworks */,
-				EA97EF425EB0789A63ADFA4B /* Pods_SpecialNeedsApp.framework in Frameworks */,
 				17C838FD29E56FCE00FE5BBC /* FirebaseFirestoreSwift in Frameworks */,
 				17C838E729E56FCE00FE5BBC /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				17C838FF29E56FCE00FE5BBC /* FirebaseFunctions in Frameworks */,
-				3DF3BBDB263A93B50015CF7E /* StoreKit.framework in Frameworks */,
 				17C838E129E56FCE00FE5BBC /* FirebaseAnalytics in Frameworks */,
 				17C838ED29E56FCE00FE5BBC /* FirebaseAuth in Frameworks */,
 				17C838F729E56FCE00FE5BBC /* FirebaseDynamicLinks in Frameworks */,
@@ -153,17 +149,17 @@
 				17C838EF29E56FCE00FE5BBC /* FirebaseAuthCombine-Community in Frameworks */,
 				17C8391529E56FCE00FE5BBC /* FirebaseStorageCombine-Community in Frameworks */,
 				17C8390329E56FCE00FE5BBC /* FirebaseInAppMessaging-Beta in Frameworks */,
+				AF5E4443ABF5D3DC2A6B1FAE /* Pods_SpecialNeedsApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0976884E21172092D09C4DD3 /* Frameworks */ = {
+		08D967A3989C53C2E45BCCB4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3DF3BBDA263A93B50015CF7E /* StoreKit.framework */,
-				5930E6DC6AF3C7EB1EE4232D /* Pods_SpecialNeedsApp.framework */,
+				87CA8E0E5DC036FF5E7B3517 /* Pods_SpecialNeedsApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -171,8 +167,8 @@
 		175D442BB0451D6B6ADFF216 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1E83A9BF421CBD65186C935D /* Pods-SpecialNeedsApp.debug.xcconfig */,
-				25F0148D5FEDF3775568D1D5 /* Pods-SpecialNeedsApp.release.xcconfig */,
+				1064DF49C0CD30A7BA059F6A /* Pods-SpecialNeedsApp.debug.xcconfig */,
+				743105C38BA08616CD45A4A3 /* Pods-SpecialNeedsApp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -199,7 +195,7 @@
 				9A55F9CC238BCC3400B38A32 /* SpecialNeedsApp */,
 				9A55F9CB238BCC3400B38A32 /* Products */,
 				175D442BB0451D6B6ADFF216 /* Pods */,
-				0976884E21172092D09C4DD3 /* Frameworks */,
+				08D967A3989C53C2E45BCCB4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -309,11 +305,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A55F9DE238BCC3500B38A32 /* Build configuration list for PBXNativeTarget "SpecialNeedsApp" */;
 			buildPhases = (
-				BB9E0319C1512BB029635397 /* [CP] Check Pods Manifest.lock */,
+				C2163282BA50FCA373347DD9 /* [CP] Check Pods Manifest.lock */,
 				9A55F9C6238BCC3400B38A32 /* Sources */,
 				9A55F9C7238BCC3400B38A32 /* Frameworks */,
 				9A55F9C8238BCC3400B38A32 /* Resources */,
-				432654CA4C1DB8676D7F3A31 /* [CP] Embed Pods Frameworks */,
+				69B25E7649B574EB2BEA4BC5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -406,7 +402,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		432654CA4C1DB8676D7F3A31 /* [CP] Embed Pods Frameworks */ = {
+		69B25E7649B574EB2BEA4BC5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -423,7 +419,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpecialNeedsApp/Pods-SpecialNeedsApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BB9E0319C1512BB029635397 /* [CP] Check Pods Manifest.lock */ = {
+		C2163282BA50FCA373347DD9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -558,7 +554,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -612,7 +608,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -624,20 +620,22 @@
 		};
 		9A55F9DF238BCC3500B38A32 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E83A9BF421CBD65186C935D /* Pods-SpecialNeedsApp.debug.xcconfig */;
+			baseConfigurationReference = 1064DF49C0CD30A7BA059F6A /* Pods-SpecialNeedsApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 45N4YCBZCJ;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = 7XCD72Z473;
 				INFOPLIST_FILE = SpecialNeedsApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				INFOPLIST_KEY_CFBundleDisplayName = "Special Needs";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.specialNeeds.mobile;
+				MARKETING_VERSION = 2.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.specialNeeds.spedgoals;
 				PRODUCT_NAME = "SPED Goals";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -646,20 +644,22 @@
 		};
 		9A55F9E0238BCC3500B38A32 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25F0148D5FEDF3775568D1D5 /* Pods-SpecialNeedsApp.release.xcconfig */;
+			baseConfigurationReference = 743105C38BA08616CD45A4A3 /* Pods-SpecialNeedsApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 45N4YCBZCJ;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = 7XCD72Z473;
 				INFOPLIST_FILE = SpecialNeedsApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				INFOPLIST_KEY_CFBundleDisplayName = "Special Needs";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.specialNeeds.mobile;
+				MARKETING_VERSION = 2.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.specialNeeds.spedgoals;
 				PRODUCT_NAME = "SPED Goals";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
