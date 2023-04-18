@@ -29,7 +29,13 @@ class AddGradeViewController: UIViewController {
     
     @IBAction func handleNewGrade(_ sender: Any) {
         let gradeName = gradeName.text ?? ""
-        let subjects: [String: [String]] = [gradeName: [""]]
+        var subjects: [String: [String]] = [:]
+        
+        let subjectNames = ["Math", "Reading", "Writing", "Social Skills", "Communication", "Fine Motor", "Gross Motor"]
+        
+        for name in subjectNames {
+            subjects[name] = [""]
+        }
         
         let grade: NewGradeRequest = NewGradeRequest(name: gradeName, subjects: subjects)
         
