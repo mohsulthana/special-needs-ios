@@ -31,16 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
-        
-//        let userRequest = RegisterUserRequest(username: "mohammad", email: "mohsulthana@gmail.com", password: "1234567")
-//        
-//        AuthService.shared.registerUser(with: userRequest) { isRegistered, error in
-//            if let error {
-//                print("Error \(error)")
-//            }
-//            
-//            print("Is registered \(isRegistered)")
-//        }
 
         setupRealm()
 

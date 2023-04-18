@@ -18,7 +18,7 @@ class SelectGradeVC: UIViewController {
     @IBOutlet weak var supportUsButton: UIButton!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
-    let arrGrades = appDelegate.realm.objects(Grade.self)
+    var arrGrades: [Grades] = []
         
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -38,6 +38,8 @@ class SelectGradeVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        fetchGradeFirestore()
         
         spinner.startAnimating()
         
@@ -84,36 +86,29 @@ class SelectGradeVC: UIViewController {
         refreshControl.endRefreshing()
     }
     
-    func openEmailSheet() {
-        let recipientEmail = "spedgoals2@gmail.com"
-        let subject = "Add New Goal"
-        let body = "Hey, I'd like to add a new goal!\n\n"
-
-        if MFMailComposeViewController.canSendMail() {
-            let mail = MFMailComposeViewController()
-            mail.mailComposeDelegate = self
-            mail.setToRecipients([recipientEmail])
-            mail.setSubject(subject)
-            mail.setMessageBody(body, isHTML: false)
-
-            present(mail, animated: true)
+    func addNewGrade() {
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddGradeVC") as? AddGradeViewController {
+            
+            let navigationVc = UINavigationController(rootViewController: vc)
+            navigationVc.modalPresentationStyle = .fullScreen
+            self.present(navigationVc, animated: true, completion: nil)
         }
-        else {
-            let alert = Utils.okAlertController("Oops", message: "Your device has not Mail app available!")
-            present(alert, animated: true)
-        }
-    }
-    
-    func askForSendingEmail() {
-        let alert = UIAlertController(title: "ADD A NEW GOAL?", message: "You have the option to submit a new goal. This will be sent to admin via email, and you will be notified via email about the status. \n\n Do you want to continue?", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "NO", style: UIAlertAction.Style.cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "YES", style: .default, handler: { (action) in
-            self.openEmailSheet()
-        }))
-        present(alert, animated: true)
     }
     
     // MARK: - API Methods
+    
+    private func fetchGradeFirestore() {
+        GradeService.shared.fetchGrades { grades, error in
+            if let error {
+                self.view.makeToast(error.localizedDescription)
+                return
+            }
+            
+            guard let grades else { return }
+            
+            self.arrGrades = grades
+        }
+    }
     
     // MARK: - Action Methods
     
@@ -169,7 +164,7 @@ extension SelectGradeVC: UITableViewDataSource, UITableViewDelegate {
         }
         else {
             let type = arrGrades[indexPath.section]
-            cell.lblGrade.text = type.gradeName
+            cell.lblGrade.text = type.name
         }
         
         return cell
@@ -179,7 +174,7 @@ extension SelectGradeVC: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if indexPath.section == arrGrades.count {
-            askForSendingEmail()
+            addNewGrade()
         }
         else {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "PickSubjectVC") as! PickSubjectVC

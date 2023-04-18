@@ -21,14 +21,14 @@ class AuthService {
             - userRequest: The users information (email, username, password)
             - completion:  A completion with two values
      */
-    public func registerUser(with userRequest: RegisterUserRequest, completion: @escaping (Bool, Error?) -> Void) {
+    public func registerUser(with userRequest: RegisterUserRequest, completion: @escaping (Bool, String?) -> Void) {
         let fullname = userRequest.fullname
         let email = userRequest.email
         let password = userRequest.password
 
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error {
-                completion(false, error)
+                completion(false, error.localizedDescription)
                 return
             }
 
@@ -46,8 +46,7 @@ class AuthService {
                     "email": email,
                 ]) { error in
                     if let error {
-                        print(error)
-                        completion(false, error)
+                        completion(false, error.localizedDescription)
                         return
                     }
 

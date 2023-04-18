@@ -221,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EJg-fN-yGH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3631.884057971015" y="836.38392857142856"/>
+            <point key="canvasLocation" x="4542.0289855072469" y="836.38392857142856"/>
         </scene>
         <!--Forgot Password-->
         <scene sceneID="Huj-WS-FtC">
@@ -294,7 +294,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1IP-B8-jvv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4439.130434782609" y="835.71428571428567"/>
+            <point key="canvasLocation" x="5349.275362318841" y="835.71428571428567"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="lni-uM-CTs">
@@ -381,7 +381,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SVv-Yg-Ded" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5294" y="836"/>
+            <point key="canvasLocation" x="6202.898550724638" y="835.71428571428567"/>
         </scene>
         <!--Teacher-->
         <scene sceneID="eNb-Hk-ULT">
@@ -919,6 +919,48 @@
             </objects>
             <point key="canvasLocation" x="3783" y="2233"/>
         </scene>
+        <!--Add New Grade-->
+        <scene sceneID="9w4-Lh-oWI">
+            <objects>
+                <viewController storyboardIdentifier="AddGradeVC" modalPresentationStyle="pageSheet" id="D4O-Va-Cpz" customClass="AddGradeViewController" customModule="SPED_Goals" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9fk-bg-cff">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter grade name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SnG-J4-mgM">
+                                <rect key="frame" x="16" y="124" width="382" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMJ-j9-og4">
+                                <rect key="frame" x="16" y="182" width="382" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <connections>
+                                    <action selector="handleNewGrade:" destination="D4O-Va-Cpz" eventType="touchUpInside" id="ynW-Sd-rrr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tOp-xf-ERC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UMJ-j9-og4" firstAttribute="top" secondItem="SnG-J4-mgM" secondAttribute="bottom" constant="24" id="MGX-0k-iaU"/>
+                            <constraint firstItem="UMJ-j9-og4" firstAttribute="leading" secondItem="tOp-xf-ERC" secondAttribute="leading" constant="16" id="Mdo-FA-Xjd"/>
+                            <constraint firstItem="SnG-J4-mgM" firstAttribute="leading" secondItem="tOp-xf-ERC" secondAttribute="leading" constant="16" id="Xf7-Xg-PEQ"/>
+                            <constraint firstItem="tOp-xf-ERC" firstAttribute="trailing" secondItem="SnG-J4-mgM" secondAttribute="trailing" constant="16" id="YHi-eh-Opm"/>
+                            <constraint firstItem="SnG-J4-mgM" firstAttribute="top" secondItem="tOp-xf-ERC" secondAttribute="top" constant="32" id="Z9a-g1-LzR"/>
+                            <constraint firstItem="tOp-xf-ERC" firstAttribute="trailing" secondItem="UMJ-j9-og4" secondAttribute="trailing" constant="16" id="xHX-sW-FSz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add New Grade" id="2Gh-eD-vZ9"/>
+                    <connections>
+                        <outlet property="gradeName" destination="SnG-J4-mgM" id="O6j-Ai-Opc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sf7-EZ-Sts" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2484.057971014493" y="887.94642857142856"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="cxY-XH-De8">
             <objects>
@@ -936,7 +978,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VNg-Y9-mMJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2721.739130434783" y="836.38392857142856"/>
+            <point key="canvasLocation" x="3631.884057971015" y="836.38392857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EUB-h3-kga">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XCL-IM-9fW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="66b-Wd-cKO">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="D4O-Va-Cpz" kind="relationship" relationship="rootViewController" id="5GE-Xl-D7p"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wzD-ya-2Sc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1573.913043478261" y="887.94642857142856"/>
         </scene>
     </scenes>
     <resources>

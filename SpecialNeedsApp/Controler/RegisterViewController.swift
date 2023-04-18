@@ -55,7 +55,7 @@ class RegisterViewController: UIViewController {
         spinner.startAnimating()
         AuthService.shared.registerUser(with: userRequest) { isRegistered, error in
             if let error {
-                self.view.makeToast(error.localizedDescription)
+                self.view.makeToast(error)
                 self.spinner.stopAnimating()
                 return
             }

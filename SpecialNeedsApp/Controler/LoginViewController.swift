@@ -37,12 +37,12 @@ class LoginViewController: UIViewController {
     }
 
     func setupNavigationBar() {
-        let backButton = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(backButtonPressed))
+        let backButton = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(dismissPage))
         backButton.tintColor = UIColor(hexFromString: "#124E61", alpha: 1)
         navigationItem.leftBarButtonItem = backButton
     }
 
-    @objc func backButtonPressed() {
+    @objc func dismissPage() {
         navigationController?.dismiss(animated: true)
     }
 
