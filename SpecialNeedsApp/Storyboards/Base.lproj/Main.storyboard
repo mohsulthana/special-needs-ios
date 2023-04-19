@@ -221,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EJg-fN-yGH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4542.0289855072469" y="836.38392857142856"/>
+            <point key="canvasLocation" x="4362" y="888"/>
         </scene>
         <!--Forgot Password-->
         <scene sceneID="Huj-WS-FtC">
@@ -294,7 +294,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1IP-B8-jvv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5349.275362318841" y="835.71428571428567"/>
+            <point key="canvasLocation" x="5126" y="888"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="lni-uM-CTs">
@@ -381,7 +381,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SVv-Yg-Ded" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6202.898550724638" y="835.71428571428567"/>
+            <point key="canvasLocation" x="5841" y="1588"/>
         </scene>
         <!--Teacher-->
         <scene sceneID="eNb-Hk-ULT">
@@ -677,7 +677,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Goals" id="YZY-1V-P8l">
-                        <barButtonItem key="leftBarButtonItem" title="Profile" image="person.crop.circle" catalog="system" id="AUM-jy-AQG"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="ox8-5t-fPk"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="K40-t4-PGR">
                             <connections>
                                 <action selector="btnAddGoalAction" destination="uFd-Gr-m5Y" id="yvk-nc-Vzn"/>
@@ -919,7 +919,7 @@
             </objects>
             <point key="canvasLocation" x="3783" y="2233"/>
         </scene>
-        <!--Add New Grade-->
+        <!--Add New Goals-->
         <scene sceneID="9w4-Lh-oWI">
             <objects>
                 <viewController storyboardIdentifier="AddGradeVC" modalPresentationStyle="pageSheet" id="D4O-Va-Cpz" customClass="AddGradeViewController" customModule="SPED_Goals" customModuleProvider="target" sceneMemberID="viewController">
@@ -937,7 +937,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                 <connections>
-                                    <action selector="handleNewGrade:" destination="D4O-Va-Cpz" eventType="touchUpInside" id="ynW-Sd-rrr"/>
+                                    <action selector="handleNewGoals:" destination="D4O-Va-Cpz" eventType="touchUpInside" id="SgG-ZE-uSd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -952,9 +952,9 @@
                             <constraint firstItem="tOp-xf-ERC" firstAttribute="trailing" secondItem="UMJ-j9-og4" secondAttribute="trailing" constant="16" id="xHX-sW-FSz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add New Grade" id="2Gh-eD-vZ9"/>
+                    <navigationItem key="navigationItem" title="Add New Goals" id="2Gh-eD-vZ9"/>
                     <connections>
-                        <outlet property="gradeName" destination="SnG-J4-mgM" id="O6j-Ai-Opc"/>
+                        <outlet property="goalsName" destination="SnG-J4-mgM" id="O6j-Ai-Opc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sf7-EZ-Sts" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -978,7 +978,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VNg-Y9-mMJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3631.884057971015" y="836.38392857142856"/>
+            <point key="canvasLocation" x="3529" y="888"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EUB-h3-kga">
@@ -11671,7 +11671,6 @@ mwAJwTsACcFAAAnBTQAJwVAACcFdAAnBYgAJwWoACcFtAAnBcgAJwXoAAAAAAAAEAQAAAAAAAABWAAAA
 AAAAAAAAAAAAAAnBfQ
 </mutableData>
         </image>
-        <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="person.fill.badge.plus" catalog="system" width="128" height="125"/>
         <image name="support_group" width="960" height="405"/>

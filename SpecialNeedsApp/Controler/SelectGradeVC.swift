@@ -45,9 +45,9 @@ class SelectGradeVC: UIViewController {
         
         setupUI()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.getGradesAPI()
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//            self.getGradesAPI()
+//        }
     }
     
     // MARK: - Notification Methods
@@ -101,10 +101,24 @@ class SelectGradeVC: UIViewController {
         GradeService.shared.fetchGrades { grades, error in
             if let error {
                 self.view.makeToast(error.localizedDescription)
+                
+                DispatchQueue.main.async {
+                    self.spinner.stopAnimating()
+                    self.spinner.isHidden = true
+                    self.tableView.isHidden = false
+                    self.tableView.reloadData()
+                }
                 return
             }
             
             guard let grades else { return }
+            
+            DispatchQueue.main.async {
+                self.spinner.stopAnimating()
+                self.spinner.isHidden = true
+                self.tableView.isHidden = false
+                self.tableView.reloadData()
+            }
             
             self.arrGrades = grades
         }

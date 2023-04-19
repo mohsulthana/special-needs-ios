@@ -10,7 +10,10 @@ import UIKit
 
 class AddGradeViewController: UIViewController {
 
-    @IBOutlet weak var gradeName: UITextField!
+    @IBOutlet weak var goalsName: UITextField!
+    var grade: [String]!
+    var documentID: String?
+    var subjectName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,27 +30,12 @@ class AddGradeViewController: UIViewController {
         navigationController?.dismiss(animated: true)
     }
     
-    @IBAction func handleNewGrade(_ sender: Any) {
-        let gradeName = gradeName.text ?? ""
-        var subjects: [String: [String]] = [:]
+    @IBAction func handleNewGoals(_ sender: Any) {
+        let goalsName = goalsName.text ?? ""
         
-        let subjectNames = ["Math", "Reading", "Writing", "Social Skills", "Communication", "Fine Motor", "Gross Motor"]
-        
-        for name in subjectNames {
-            subjects[name] = [""]
-        }
-        
-        let grade: NewGradeRequest = NewGradeRequest(name: gradeName, subjects: subjects)
-        
-        GradeService.shared.addNewGrade(with: grade) { isCreated, error in
+        GoalService.shared.createNewGoals(id: documentID ?? "", key: subjectName ?? "", value: goalsName) { error in
             if let error {
-                self.view.makeToast(error)
-                return
-            }
-            
-            if isCreated != nil {
-                self.view.makeToast("Grade was created")
-                self.dismissPage()
+                self.view.makeToast("Error")
                 return
             }
         }

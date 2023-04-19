@@ -9,22 +9,19 @@
 import Foundation
 import FirebaseFirestoreSwift
 
-struct GradeResponse {
-    @DocumentID var id: String?
+struct GradeResponse: Codable {
     let name: String
-    let subjects: SubjectResponse
+    let subjects: [StudentSubjects.RawValue:[String]]
 }
 
-struct SubjectResponse {
-    let name: StudentSubjects
-}
-
-enum StudentSubjects: String {
+enum StudentSubjects: String, Decodable {
     case math = "Math"
     case behavior = "Behavior"
     case communication = "Communication"
-}
-
-enum GradesNaming: String, CaseIterable {
-    case prek = "PREK"
+    case other
+    
+    init(from decoder: Decoder) throws {
+      let label = try decoder.singleValueContainer().decode(String.self)
+      self = StudentSubjects(rawValue: label) ?? .other
+    }
 }

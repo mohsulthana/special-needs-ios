@@ -14,6 +14,8 @@
 		174526F429EF0944003D1D18 /* NewGradeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174526F329EF0944003D1D18 /* NewGradeRequest.swift */; };
 		1755B11B29E6B2ED00D2BA3C /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755B11A29E6B2ED00D2BA3C /* Validator.swift */; };
 		1755B11D29E6B50B00D2BA3C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755B11C29E6B50B00D2BA3C /* User.swift */; };
+		17866DA429F07342007E6753 /* GoalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17866DA329F07342007E6753 /* GoalService.swift */; };
+		17866DA629F075C9007E6753 /* UpdateSubjectRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17866DA529F075C9007E6753 /* UpdateSubjectRequest.swift */; };
 		17C6A0AA29E79F9B0032B90A /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6A0A929E79F9B0032B90A /* ForgotPasswordViewController.swift */; };
 		17C6A0AD29E7A9350032B90A /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6A0AC29E7A9350032B90A /* TabViewController.swift */; };
 		17C6A0AF29E7A95E0032B90A /* StudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6A0AE29E7A95E0032B90A /* StudentViewController.swift */; };
@@ -87,6 +89,8 @@
 		174526F329EF0944003D1D18 /* NewGradeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGradeRequest.swift; sourceTree = "<group>"; };
 		1755B11A29E6B2ED00D2BA3C /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		1755B11C29E6B50B00D2BA3C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		17866DA329F07342007E6753 /* GoalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalService.swift; sourceTree = "<group>"; };
+		17866DA529F075C9007E6753 /* UpdateSubjectRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateSubjectRequest.swift; sourceTree = "<group>"; };
 		17C6A0A929E79F9B0032B90A /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		17C6A0AC29E7A9350032B90A /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		17C6A0AE29E7A95E0032B90A /* StudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +183,7 @@
 			children = (
 				17C8391A29E5AED300FE5BBC /* AuthService.swift */,
 				1716219029EDC2B2009AF02A /* GradeService.swift */,
+				17866DA329F07342007E6753 /* GoalService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -258,6 +263,7 @@
 				1716219229EDC3B3009AF02A /* GradeResponse.swift */,
 				174526EF29EEDC53003D1D18 /* Grades.swift */,
 				174526F329EF0944003D1D18 /* NewGradeRequest.swift */,
+				17866DA529F075C9007E6753 /* UpdateSubjectRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -487,12 +493,14 @@
 				17C6A0AD29E7A9350032B90A /* TabViewController.swift in Sources */,
 				17C6A0AA29E79F9B0032B90A /* ForgotPasswordViewController.swift in Sources */,
 				174526F229EF06F9003D1D18 /* AddGradeViewController.swift in Sources */,
+				17866DA429F07342007E6753 /* GoalService.swift in Sources */,
 				1716219329EDC3B3009AF02A /* GradeResponse.swift in Sources */,
 				3DF3BBDE263AA08D0015CF7E /* BillingController.swift in Sources */,
 				174526F429EF0944003D1D18 /* NewGradeRequest.swift in Sources */,
 				AF48D5EF2406A482008B2F90 /* Utils.swift in Sources */,
 				17D2FC9829E866930043F0DF /* UITextField.swift in Sources */,
 				174526F029EEDC53003D1D18 /* Grades.swift in Sources */,
+				17866DA629F075C9007E6753 /* UpdateSubjectRequest.swift in Sources */,
 				17C6A0AF29E7A95E0032B90A /* StudentViewController.swift in Sources */,
 				9A55F9E8238BDDCD00B38A32 /* PickSubjectCell.swift in Sources */,
 				9A55F9F0238D15A600B38A32 /* Grade.swift in Sources */,

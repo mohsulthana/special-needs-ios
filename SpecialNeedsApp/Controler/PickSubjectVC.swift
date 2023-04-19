@@ -12,7 +12,7 @@ class PickSubjectVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var grade: Grades!
+    var grade: Grades?
     
     // MARK: - View Lifecycle Methods
     
@@ -44,14 +44,15 @@ class PickSubjectVC: UIViewController {
 
 extension PickSubjectVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return grade?.subjects.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PickSubjectCell.cellID, for: indexPath) as! PickSubjectCell
         
-//        let type = grade.arrSubjects[indexPath.section]
-//        cell.lblTitle.text = type.subjName
+        guard let grade else { return cell }
+        
+        cell.lblTitle.text = Array(grade.subjects)[indexPath.row].key
         
         return cell
     }
@@ -68,8 +69,11 @@ extension PickSubjectVC: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "GoalsVC") as! GoalsVC
-//        vc.subject = "Hello" ?? ""
         
+        guard let grade else { return }
+        vc.grade = Array(grade.subjects)[indexPath.row].value
+        vc.documentID = grade.documentID
+        vc.subjectName = Array(grade.subjects)[indexPath.row].key
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

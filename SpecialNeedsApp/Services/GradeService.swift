@@ -32,10 +32,12 @@ class GradeService: ObservableObject {
             if let document = querySnapshot?.documents {
                 do {
                     for doc in document {
-                        let data = doc.data()
-                        let name: String = data["name"] as! GradesNaming.RawValue
+                        let datas = try? doc.data(as: GradeResponse.self)
                         
-                        grades.append(Grades(name: name))
+                        if let datas {
+                            let grade: Grades = Grades(documentID: doc.documentID, name: datas.name, subjects: datas.subjects)
+                            grades.append(grade)
+                        }
                     }
                 }
             }

@@ -9,5 +9,7 @@
 import Foundation
 
 struct Grades {
+    let documentID: String
     let name: String
+    let subjects: [StudentSubjects.RawValue:[String]]
 }

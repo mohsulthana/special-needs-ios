@@ -14,12 +14,14 @@ class GoalsVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var subject: Subject!
+    var grade: [String]!
+    var documentID: String?
+    var subjectName: String?
     
     // MARK: - View Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     
@@ -58,12 +60,14 @@ class GoalsVC: UIViewController {
     // MARK: - Action Methods
     
     @IBAction func btnAddGoalAction() {
-        let alert = UIAlertController(title: "ADD A NEW GOAL?", message: "You have the option to submit a new goal. This will be sent to admin via email, and you will be notified via email about the status. \n\n Do you want to continue?", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "NO", style: UIAlertAction.Style.cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "YES", style: .default, handler: { (action) in
-            self.openEmailSheet()
-        }))
-        present(alert, animated: true)
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddGradeVC") as? AddGradeViewController {
+            vc.grade = grade
+            vc.documentID = documentID
+            vc.subjectName = subjectName
+            let navigationVc = UINavigationController(rootViewController: vc)
+            navigationVc.modalPresentationStyle = .fullScreen
+            self.present(navigationVc, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Memory Cleanup
@@ -74,14 +78,17 @@ class GoalsVC: UIViewController {
 
 extension GoalsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return subject.arrGoals.count
+        return grade.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: GoalsCell.cellID, for: indexPath) as! GoalsCell
         
-        let type = subject.arrGoals[indexPath.row]
-        cell.lblGoals.text = type.goalName
+        guard let grade else { return cell }
+//        let type = subject.arrGoals[indexPath.row]
+//        cell.lblGoals.text = type.goalName
+        
+        cell.lblGoals.text = grade[indexPath.row]
         
         return cell
     }

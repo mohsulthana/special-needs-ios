@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
 
-        setupRealm()
+//        setupRealm()
 
         if #available(iOS 13.0, *) {
         } else {

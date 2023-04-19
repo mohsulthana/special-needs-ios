@@ -13,7 +13,7 @@ import SwiftyJSON
 class Grade: Object{
     
     @objc dynamic var id = ""
-    @objc dynamic var gradeName = ""
+    @objc dynamic var goalsName = ""
     
     var arrSubjects = List<Subject>()
     
@@ -64,7 +64,7 @@ class Grade: Object{
             realm.add(grade)
         }
         
-        grade.gradeName = jsonData["Name"].stringValue
+        grade.goalsName = jsonData["Name"].stringValue
         
         if let arrTempSubjects = jsonData["Subjects"].array {
             grade.arrSubjects.removeAll()
