@@ -18,27 +18,11 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         setupNavigationBar()
-        
-        setupUI()
-    }
-    
-    private func setupUI() {
-        loginButton.backgroundColor = UIColor(hexFromString: "#124E61", alpha: 1)
-        loginButton.tintColor = UIColor(hexFromString: "#124E61", alpha: 1)
-        loginButton.layer.cornerRadius = 12
-        
-        let emailPadding = UIView(frame: CGRectMake(2, 2, 8, self.emailTextfield.frame.height))
-        emailTextfield.leftView = emailPadding
-        emailTextfield.leftViewMode = .always
-        
-        let passwordPadding = UIView(frame: CGRectMake(2, 2, 8, self.passwordTextfield.frame.height))
-        passwordTextfield.leftView = passwordPadding
-        passwordTextfield.leftViewMode = .always
     }
 
     func setupNavigationBar() {
         let backButton = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(dismissPage))
-        backButton.tintColor = UIColor(hexFromString: "#124E61", alpha: 1)
+        backButton.tintColor = UIColor.primaryColor
         navigationItem.leftBarButtonItem = backButton
     }
 

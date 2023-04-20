@@ -20,15 +20,15 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     private func setupUI() {
-        sendLinkButton.backgroundColor = UIColor(hexFromString: "#124E61", alpha: 1)
-        sendLinkButton.tintColor = UIColor(hexFromString: "#124E61", alpha: 1)
+        sendLinkButton.backgroundColor = UIColor.primaryColor
+        sendLinkButton.tintColor = UIColor.primaryColor
         sendLinkButton.layer.cornerRadius = 12
         
         let emailPadding = UIView(frame: CGRectMake(2, 2, 8, self.emailTextfield.frame.height))
         emailTextfield.leftView = emailPadding
         emailTextfield.leftViewMode = .always
         
-        navigationItem.leftBarButtonItem?.tintColor = UIColor(hexFromString: "#124E61", alpha: 1)
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.primaryColor
     }
     
     @IBAction func handleResetPasswordButton(_ sender: Any) {

@@ -16,6 +16,8 @@
 		1755B11D29E6B50B00D2BA3C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755B11C29E6B50B00D2BA3C /* User.swift */; };
 		17866DA429F07342007E6753 /* GoalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17866DA329F07342007E6753 /* GoalService.swift */; };
 		17866DA629F075C9007E6753 /* UpdateSubjectRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17866DA529F075C9007E6753 /* UpdateSubjectRequest.swift */; };
+		178D1B7829F1AD970033689E /* PrimaryFilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178D1B7729F1AD970033689E /* PrimaryFilledButton.swift */; };
+		178D1B7A29F1B1B20033689E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178D1B7929F1B1B20033689E /* CustomTextField.swift */; };
 		17C6A0AA29E79F9B0032B90A /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6A0A929E79F9B0032B90A /* ForgotPasswordViewController.swift */; };
 		17C6A0AD29E7A9350032B90A /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6A0AC29E7A9350032B90A /* TabViewController.swift */; };
 		17C6A0AF29E7A95E0032B90A /* StudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C6A0AE29E7A95E0032B90A /* StudentViewController.swift */; };
@@ -56,7 +58,6 @@
 		17C8391F29E5BFB200FE5BBC /* LoginUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C8391E29E5BFB200FE5BBC /* LoginUserRequest.swift */; };
 		17D2FC9029E83BCA0043F0DF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D2FC8F29E83BCA0043F0DF /* UIColor.swift */; };
 		17D2FC9229E83C750043F0DF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D2FC9129E83C750043F0DF /* RegisterViewController.swift */; };
-		17D2FC9629E865D60043F0DF /* PasswordTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D2FC9529E865D60043F0DF /* PasswordTextfield.swift */; };
 		17D2FC9829E866930043F0DF /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D2FC9729E866930043F0DF /* UITextField.swift */; };
 		3D04C6642603F85F00BD559B /* SupportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04C6632603F85F00BD559B /* SupportCell.swift */; };
 		3D04C6672603F91800BD559B /* SupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04C6662603F91800BD559B /* SupportVC.swift */; };
@@ -91,6 +92,8 @@
 		1755B11C29E6B50B00D2BA3C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		17866DA329F07342007E6753 /* GoalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalService.swift; sourceTree = "<group>"; };
 		17866DA529F075C9007E6753 /* UpdateSubjectRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateSubjectRequest.swift; sourceTree = "<group>"; };
+		178D1B7729F1AD970033689E /* PrimaryFilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryFilledButton.swift; sourceTree = "<group>"; };
+		178D1B7929F1B1B20033689E /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		17C6A0A929E79F9B0032B90A /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		17C6A0AC29E7A9350032B90A /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		17C6A0AE29E7A95E0032B90A /* StudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewController.swift; sourceTree = "<group>"; };
@@ -103,7 +106,6 @@
 		17C8391E29E5BFB200FE5BBC /* LoginUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserRequest.swift; sourceTree = "<group>"; };
 		17D2FC8F29E83BCA0043F0DF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		17D2FC9129E83C750043F0DF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		17D2FC9529E865D60043F0DF /* PasswordTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextfield.swift; sourceTree = "<group>"; };
 		17D2FC9729E866930043F0DF /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		3D04C6632603F85F00BD559B /* SupportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportCell.swift; sourceTree = "<group>"; };
 		3D04C6662603F91800BD559B /* SupportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportVC.swift; sourceTree = "<group>"; };
@@ -197,6 +199,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		176B71CE29F1ACE10033DAD7 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				178D1B7729F1AD970033689E /* PrimaryFilledButton.swift */,
+				178D1B7929F1B1B20033689E /* CustomTextField.swift */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
 		17C6A0AB29E7A91B0032B90A /* Tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,7 +219,7 @@
 		17D2FC8E29E83BB20043F0DF /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				17D2FC9529E865D60043F0DF /* PasswordTextfield.swift */,
+				176B71CE29F1ACE10033DAD7 /* Global */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -481,12 +492,12 @@
 				1716219129EDC2B2009AF02A /* GradeService.swift in Sources */,
 				17D2FC9029E83BCA0043F0DF /* UIColor.swift in Sources */,
 				9A55F9E6238BDD2B00B38A32 /* PickSubjectVC.swift in Sources */,
+				178D1B7A29F1B1B20033689E /* CustomTextField.swift in Sources */,
 				3D04C6672603F91800BD559B /* SupportVC.swift in Sources */,
 				17C8391B29E5AED300FE5BBC /* AuthService.swift in Sources */,
 				9A55F9EC238D130500B38A32 /* SelectGradeVC.swift in Sources */,
 				17C6A0B129E7A9820032B90A /* TeacherViewController.swift in Sources */,
 				17C6A0B329E7AD550032B90A /* ProfileViewController.swift in Sources */,
-				17D2FC9629E865D60043F0DF /* PasswordTextfield.swift in Sources */,
 				9A55F9CE238BCC3400B38A32 /* AppDelegate.swift in Sources */,
 				17C8391F29E5BFB200FE5BBC /* LoginUserRequest.swift in Sources */,
 				9A55F9F9238D79DC00B38A32 /* GoalsVC.swift in Sources */,
@@ -514,6 +525,7 @@
 				9A55F9FF238F171E00B38A32 /* SceneDelegate.swift in Sources */,
 				3D04C6642603F85F00BD559B /* SupportCell.swift in Sources */,
 				1755B11D29E6B50B00D2BA3C /* User.swift in Sources */,
+				178D1B7829F1AD970033689E /* PrimaryFilledButton.swift in Sources */,
 				17D2FC9229E83C750043F0DF /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,6 +9,8 @@
 import UIKit
 
 extension UIColor {
+    static let primaryColor = UIColor(red: 18/255, green: 78/255, blue: 97/255, alpha: 1)
+    
     convenience init(hexFromString:String, alpha:CGFloat = 1.0) {
         var cString:String = hexFromString.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         var rgbValue:UInt32 = 10066329 //color #999999 if string has wrong format

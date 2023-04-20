@@ -23,8 +23,8 @@ class RegisterViewController: UIViewController {
     }
     
     private func setupUI() {
-        registerButton.backgroundColor = UIColor(hexFromString: "#124E61", alpha: 1)
-        registerButton.tintColor = UIColor(hexFromString: "#124E61", alpha: 1)
+        registerButton.backgroundColor = UIColor.primaryColor
+        registerButton.tintColor = UIColor.primaryColor
         registerButton.layer.cornerRadius = 12
         
         let fullnamePadding = UIView(frame: CGRectMake(2, 2, 8, self.fullnameTextfield.frame.height))

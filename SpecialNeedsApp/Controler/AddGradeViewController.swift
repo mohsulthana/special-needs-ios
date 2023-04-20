@@ -22,7 +22,7 @@ class AddGradeViewController: UIViewController {
     
     func setupNavigationBar() {
         let backButton = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(dismissPage))
-        backButton.tintColor = UIColor(hexFromString: "#124E61", alpha: 1)
+        backButton.tintColor = UIColor.primaryColor
         navigationItem.leftBarButtonItem = backButton
     }
     
@@ -34,7 +34,7 @@ class AddGradeViewController: UIViewController {
         let goalsName = goalsName.text ?? ""
         
         GoalService.shared.createNewGoals(id: documentID ?? "", key: subjectName ?? "", value: goalsName) { error in
-            if let error {
+            if error != nil {
                 self.view.makeToast("Error")
                 return
             }
