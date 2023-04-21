@@ -8,7 +8,6 @@
 
 import Foundation
 import FirebaseFirestore
-import Foundation
 
 class GradeService: ObservableObject {
     public static let shared = GradeService()
@@ -35,7 +34,7 @@ class GradeService: ObservableObject {
                         let datas = try? doc.data(as: GradeResponse.self)
                         
                         if let datas {
-                            let grade: Grades = Grades(documentID: doc.documentID, name: datas.name, subjects: datas.subjects)
+                            let grade: Grades = Grades(documentID: doc.documentID, grade: datas.grade, subjects: datas.subjects)
                             grades.append(grade)
                         }
                     }

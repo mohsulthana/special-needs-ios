@@ -6,35 +6,57 @@
 //  Copyright © 2019 Gustavo Ortega. All rights reserved.
 //
 
-import UIKit
 import MessageUI
+import UIKit
 
 class GoalsVC: UIViewController {
-    
-    @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet var tableView: UITableView!
+
     var subject: Subject!
-    var grade: [String]!
     var documentID: String?
-    var subjectName: String?
-    
+    var subjectName: SubjectName?
+    var goals = [String]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+
     // MARK: - View Lifecycle Methods
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = subjectName?.rawValue ?? ""
+        fetchGoals()
     }
-    
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchGoals()
+    }
+
     // MARK: - Notification Methods
-    
+
     // MARK: - Public Methods
-    
-    // MARK: - Custom Methods
-    
-    private func setupUI() {
-        
+
+    // MARK: - API Methods
+    public func fetchGoals() {
+        GoalService.shared.fetchGoals(student: subjectName ?? .other, document: documentID ?? "") { goals, error in
+            if let error {
+                DispatchQueue.main.async {
+                    self.view.makeToast(error.localizedDescription)
+                    return
+                }
+            }
+            self.goals = goals ?? []
+        }
     }
-    
+
+    // MARK: - Custom Methods
+
+    private func setupUI() {
+    }
+
     func openEmailSheet() {
         let recipientEmail = "spedgoals2@gmail.com"
         let subject = "Add New Goal"
@@ -48,52 +70,80 @@ class GoalsVC: UIViewController {
             mail.setMessageBody(body, isHTML: false)
 
             present(mail, animated: true)
-        }
-        else {
+        } else {
             let alert = Utils.okAlertController("Oops", message: "Your device has not Mail app available!")
             present(alert, animated: true)
         }
     }
-    
+
     // MARK: - API Methods
-    
+
     // MARK: - Action Methods
-    
+
     @IBAction func btnAddGoalAction() {
-        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddGradeVC") as? AddGradeViewController {
-            vc.grade = grade
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "AddGradeVC") as? AddGradeViewController {
             vc.documentID = documentID
-            vc.subjectName = subjectName
+            vc.subjectName = subjectName?.rawValue ?? ""
+            vc.goals = goals
             let navigationVc = UINavigationController(rootViewController: vc)
             navigationVc.modalPresentationStyle = .fullScreen
-            self.present(navigationVc, animated: true, completion: nil)
+            present(navigationVc, animated: true, completion: nil)
         }
     }
-    
+
     // MARK: - Memory Cleanup
-    
 }
 
 // MARK: - UITableViewDataSource Methods
 
 extension GoalsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return grade.count
+        var numberObjects = goals.count
+        if numberObjects == 0 {
+            tableView.setEmptyView(title: "No goals added", message: "Tap plus icon to add new goal")
+            numberObjects = 0
+        } else {
+            tableView.restore()
+        }
+        return numberObjects
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: GoalsCell.cellID, for: indexPath) as! GoalsCell
-        
-        guard let grade else { return cell }
-//        let type = subject.arrGoals[indexPath.row]
-//        cell.lblGoals.text = type.goalName
-        
-        cell.lblGoals.text = grade[indexPath.row]
-        
+
+        cell.lblGoals.text = goals[indexPath.row]
+
         return cell
     }
-}
 
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let goal = goals[(indexPath as NSIndexPath).row]
+
+        let trash = UIContextualAction(style: .destructive,
+                                       title: "Delete") { [weak self] _, _, completionHandler in
+            self?.handleMoveToTrash(goal: goal)
+            completionHandler(true)
+        }
+        trash.backgroundColor = .systemRed
+
+        let configuration = UISwipeActionsConfiguration(actions: [trash])
+
+        return configuration
+    }
+
+    func handleMoveToTrash(goal: String) {
+        GoalService.shared.deleteGoal(goal: goal, key: subjectName ?? .other, documentID: documentID ?? "") { error in
+            if let error {
+                self.view.makeToast(error.localizedDescription)
+                return
+            }
+            self.view.makeToast("Successfully deleted goal")
+            if let index = self.goals.firstIndex(of: goal) {
+                self.goals.remove(at: index)
+            }
+        }
+    }
+}
 
 // MARK: - UITableViewDelegate Methods
 
@@ -101,7 +151,7 @@ extension GoalsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-    
+
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.00001
     }
@@ -115,21 +165,21 @@ extension GoalsVC: MFMailComposeViewControllerDelegate {
             var status = ""
             switch result {
             case .cancelled:
-               status = "Sending email canceled"
-                
+                status = "Sending email canceled"
+
             case .saved:
                 status = "Email saved"
-                
+
             case .sent:
                 status = "Email sent successfully!"
-                
+
             case .failed:
                 status = "Failed to send email. Please try again!"
-                
+
             @unknown default:
                 break
             }
-            
+
             let alert = Utils.okAlertController(status, message: "")
             self.present(alert, animated: true)
         }

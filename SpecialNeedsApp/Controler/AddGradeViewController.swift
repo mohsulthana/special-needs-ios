@@ -14,6 +14,9 @@ class AddGradeViewController: UIViewController {
     var grade: [String]!
     var documentID: String?
     var subjectName: String?
+    var goals: [String]?
+    
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +35,20 @@ class AddGradeViewController: UIViewController {
     
     @IBAction func handleNewGoals(_ sender: Any) {
         let goalsName = goalsName.text ?? ""
+        let id = documentID ?? ""
+        let subject = subjectName ?? ""
         
-        GoalService.shared.createNewGoals(id: documentID ?? "", key: subjectName ?? "", value: goalsName) { error in
+        let request = NewGoalRequest(documentID: id, goal: goalsName, subjectName: subject)
+        
+        spinner.startAnimating()
+        GoalService.shared.createNewGoals(with: request) { error in
             if error != nil {
                 self.view.makeToast("Error")
                 return
             }
+            
+            self.view.makeToast("A new goals has been added")
         }
+        self.dismissPage()
     }
 }

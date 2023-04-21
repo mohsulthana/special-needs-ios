@@ -43,8 +43,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             window?.makeKeyAndVisible()
         }
+        
+        createFirestoreData()
 
         return true
+    }
+    
+    private func createFirestoreData() {
+        let goals: [String] = [""]
+        var mathGoalsModel: SubjectGoalsModel = SubjectGoalsModel(name: "math", goals: [])
+        var readingGoalsModel: SubjectGoalsModel = SubjectGoalsModel(name: "reading", goals: [])
+        var writingGoalsModel: SubjectGoalsModel = SubjectGoalsModel(name: "writing", goals: [])
+        var behaviorGoalsModel: SubjectGoalsModel = SubjectGoalsModel(name: "behavior", goals: [])
+        var socialSkillsGoalsModel: SubjectGoalsModel = SubjectGoalsModel(name: "social_skills", goals: [])
+        var communicationGoalsModel: SubjectGoalsModel = SubjectGoalsModel(name: "communication", goals: [])
+        var fineMotorGoalsModel: SubjectGoalsModel = SubjectGoalsModel(name: "fine_motor", goals: [])
+        var grossMotorGoalsModel: SubjectGoalsModel = SubjectGoalsModel(name: "gross_motor", goals: [])
+        
+        var readingComprehesionGoalsModel: SubjectGoalsModel = SubjectGoalsModel(name: "reading_comprehesion", goals: [])
+        var readingFluencyGoalsModel: SubjectGoalsModel = SubjectGoalsModel(name: "reading_fluency", goals: [])
+        
+        var mathComputationGoalsModel: SubjectGoalsModel = SubjectGoalsModel(name: "math_computation", goals: [])
+        var mathWordProblem: SubjectGoalsModel = SubjectGoalsModel(name: "math_word_problem", goals: [])
+        
+        let prek = PrekDataModel(grade: "PreK", subjects: PrekSubject(math: mathGoalsModel, reading: readingGoalsModel, writing: writingGoalsModel, behavior: behaviorGoalsModel, social_skills: socialSkillsGoalsModel, communication: communicationGoalsModel, fine_motor: fineMotorGoalsModel, gross_motor: grossMotorGoalsModel))
+        let kindergaten = FirestoreModel.KindergatenDataModel(grade: "Kindergaten", subjects: FirestoreModel.KindergatenSubject(reading_comprehesion: readingComprehesionGoalsModel, reading_fluency: readingFluencyGoalsModel, writing: writingGoalsModel, math: mathGoalsModel, social_skills: socialSkillsGoalsModel, communication: communicationGoalsModel, behavior: behaviorGoalsModel))
+        let firstGrade = FirestoreModel.FirstGradeDataModel(grade: "1st Grade", subjects: FirestoreModel.FirstGradeSubject(reading_comprehesion: readingComprehesionGoalsModel, reading_fluency: readingFluencyGoalsModel, writing: writingGoalsModel, math_computation: mathComputationGoalsModel, math_word_problem: mathWordProblem, social_skills: socialSkillsGoalsModel, communication: communicationGoalsModel, behavior: behaviorGoalsModel))
+        
+        let firestoreRequestArray = [prek, kindergaten, firstGrade] as [Any]
+        
+        let db = Firestore.firestore()
+
+        try? db.collection("grades").document().setData(from: firstGrade) { err in
+            if let err {
+                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
+                return
+            }
+            self.window?.rootViewController?.view.makeToast("Success")
+            return
+        }
+        
+        
     }
 
     // MARK: - Custom Methods

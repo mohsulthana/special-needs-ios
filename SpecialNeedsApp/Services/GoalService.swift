@@ -10,22 +10,53 @@ import FirebaseFirestore
 
 class GoalService: ObservableObject {
     public static let shared = GoalService()
-    
+
     private init() {}
-    
-    public func createNewGoals(id: String, key: String, value: String, completion: @escaping(Error?) -> Void) {
+
+    public func fetchGoals(student: SubjectName?, document: String, completion: @escaping ([String]?, Error?) -> Void) {
         let db = Firestore.firestore()
-        
-        db.collection("grades").document(id)
+
+        let docRef = db.collection("grades").document(document)
+
+        Task {
+            do {
+                let data = try await docRef.getDocument(as: GradeResponse.self)
+                if let goals = data.subjects?.array.filter({ $0.name?.rawValue == student?.rawValue }) {
+                    completion(goals[0].goals, nil)
+                }
+            } catch {
+                completion(nil, error)
+            }
+        }
+    }
+
+    public func deleteGoal(goal: String, key: SubjectName, documentID: String, completion: @escaping (Error?) -> Void) {
+        let db = Firestore.firestore()
+
+        db.collection("grades").document(documentID)
             .updateData([
-                "subjects.\(key)": FieldValue.arrayUnion([value])
+                "subjects.\(key)": FieldValue.arrayRemove([goal]),
             ]) { err in
                 if let err {
                     completion(err)
                     return
                 }
                 completion(nil)
-                return
+            }
+    }
+
+    public func createNewGoals(with data: NewGoalRequest, completion: @escaping (Error?) -> Void) {
+        let db = Firestore.firestore()
+
+        db.collection("grades").document(data.documentID)
+            .updateData([
+                "subjects.\(data.subjectName.lowercased()).goals": FieldValue.arrayUnion([data.goal]),
+            ]) { err in
+                if let err {
+                    completion(err)
+                    return
+                }
+                completion(nil)
             }
     }
 }

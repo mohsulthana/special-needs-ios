@@ -34,15 +34,15 @@
                                 <rect key="frame" x="20" y="376.5" width="374" height="485.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SelectYourGradeCellID" rowHeight="67" id="F0y-6X-r0K" customClass="SelectYourGradeCell" customModule="SPED_Goals" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="374" height="67"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SelectYourGradeCellID" rowHeight="20" id="F0y-6X-r0K" customClass="SelectYourGradeCell" customModule="SPED_Goals" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="374" height="20"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F0y-6X-r0K" id="2Lw-pj-XNp">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="67"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="20"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grade 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Nz-uP-fgY">
-                                                    <rect key="frame" x="157.5" y="23" width="59" height="21"/>
+                                                    <rect key="frame" x="157.5" y="-0.5" width="59" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -134,7 +134,7 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input your email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ydr-1b-a6U" customClass="CustomTextField" customModule="SPED_Goals" customModuleProvider="target">
                                 <rect key="frame" x="16" y="172" width="382" height="34"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ko0-AW-rmC" customClass="CustomTextField" customModule="SPED_Goals" customModuleProvider="target">
@@ -567,25 +567,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UIQ-wU-muA">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UIQ-wU-muA">
                                 <rect key="frame" x="20" y="183" width="374" height="679"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PickSubjectCellID" rowHeight="66" id="hGk-lk-R8R" customClass="PickSubjectCell" customModule="SPED_Goals" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="374" height="66"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PickSubjectCellID" rowHeight="60" id="hGk-lk-R8R" customClass="PickSubjectCell" customModule="SPED_Goals" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="374" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hGk-lk-R8R" id="CGW-cZ-CIw">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="66"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Math" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Axn-dv-LwX">
-                                                    <rect key="frame" x="8" y="23.5" width="39" height="19.5"/>
+                                                    <rect key="frame" x="8" y="20" width="39" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_right_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="iYK-oQ-Se3">
-                                                    <rect key="frame" x="341" y="20.5" width="25" height="25"/>
+                                                    <rect key="frame" x="341" y="17.5" width="25" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="OWZ-YJ-yRK"/>
                                                         <constraint firstAttribute="width" constant="25" id="UE6-pq-JR3"/>
@@ -681,7 +681,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Goals" id="YZY-1V-P8l">
+                    <navigationItem key="navigationItem" id="YZY-1V-P8l">
                         <barButtonItem key="backBarButtonItem" title="Back" id="ox8-5t-fPk"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="K40-t4-PGR">
                             <connections>
@@ -932,9 +932,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter grade name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SnG-J4-mgM">
+                            <textField opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter goals" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SnG-J4-mgM" customClass="CustomTextField" customModule="SPED_Goals" customModuleProvider="target">
                                 <rect key="frame" x="16" y="124" width="382" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="3zT-8R-lwb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMJ-j9-og4" customClass="PrimaryFilledButton" customModule="SPED_Goals" customModuleProvider="target">
@@ -950,21 +953,27 @@
                                     <action selector="handleNewGoals:" destination="D4O-Va-Cpz" eventType="touchUpInside" id="SgG-ZE-uSd"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="L0M-Nj-q8h">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tOp-xf-ERC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="UMJ-j9-og4" firstAttribute="top" secondItem="SnG-J4-mgM" secondAttribute="bottom" constant="24" id="MGX-0k-iaU"/>
                             <constraint firstItem="UMJ-j9-og4" firstAttribute="leading" secondItem="tOp-xf-ERC" secondAttribute="leading" constant="16" id="Mdo-FA-Xjd"/>
+                            <constraint firstItem="L0M-Nj-q8h" firstAttribute="centerX" secondItem="9fk-bg-cff" secondAttribute="centerX" id="WtE-eq-jz4"/>
                             <constraint firstItem="SnG-J4-mgM" firstAttribute="leading" secondItem="tOp-xf-ERC" secondAttribute="leading" constant="16" id="Xf7-Xg-PEQ"/>
                             <constraint firstItem="tOp-xf-ERC" firstAttribute="trailing" secondItem="SnG-J4-mgM" secondAttribute="trailing" constant="16" id="YHi-eh-Opm"/>
                             <constraint firstItem="SnG-J4-mgM" firstAttribute="top" secondItem="tOp-xf-ERC" secondAttribute="top" constant="32" id="Z9a-g1-LzR"/>
+                            <constraint firstItem="L0M-Nj-q8h" firstAttribute="centerY" secondItem="9fk-bg-cff" secondAttribute="centerY" id="Znt-eK-Q8a"/>
                             <constraint firstItem="tOp-xf-ERC" firstAttribute="trailing" secondItem="UMJ-j9-og4" secondAttribute="trailing" constant="16" id="xHX-sW-FSz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add New Goals" id="2Gh-eD-vZ9"/>
                     <connections>
                         <outlet property="goalsName" destination="SnG-J4-mgM" id="O6j-Ai-Opc"/>
+                        <outlet property="spinner" destination="L0M-Nj-q8h" id="hUZ-Mg-lut"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sf7-EZ-Sts" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1010,6 +1019,9 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="SnG-J4-mgM">
+            <size key="intrinsicContentSize" width="100" height="34"/>
+        </designable>
         <designable name="U3H-bO-GON">
             <size key="intrinsicContentSize" width="99" height="34.5"/>
         </designable>
@@ -1020,7 +1032,7 @@
             <size key="intrinsicContentSize" width="127" height="34"/>
         </designable>
         <designable name="air-yu-ibk">
-            <size key="intrinsicContentSize" width="143.5" height="34"/>
+            <size key="intrinsicContentSize" width="139.5" height="34"/>
         </designable>
         <designable name="k9j-QO-Qgg">
             <size key="intrinsicContentSize" width="70.5" height="34.5"/>

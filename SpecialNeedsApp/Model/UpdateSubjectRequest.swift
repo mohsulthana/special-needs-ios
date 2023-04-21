@@ -9,5 +9,5 @@
 import Foundation
 
 struct UpdateSubjectRequest {
-    let subject: [StudentSubjects: [String]]
+//    let subject: [StudentSubjects: [String]]
 }

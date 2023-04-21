@@ -44,7 +44,7 @@ class PickSubjectVC: UIViewController {
 
 extension PickSubjectVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return grade?.subjects.count ?? 0
+        return grade?.subjects?.array.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,7 +52,7 @@ extension PickSubjectVC: UITableViewDataSource {
         
         guard let grade else { return cell }
         
-        cell.lblTitle.text = Array(grade.subjects)[indexPath.row].key
+        cell.lblTitle.text = grade.subjects?.array[indexPath.row].name?.rawValue
         
         return cell
     }
@@ -71,18 +71,9 @@ extension PickSubjectVC: UITableViewDelegate {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "GoalsVC") as! GoalsVC
         
         guard let grade else { return }
-        vc.grade = Array(grade.subjects)[indexPath.row].value
         vc.documentID = grade.documentID
-        vc.subjectName = Array(grade.subjects)[indexPath.row].key
+        vc.subjectName = grade.subjects?.array[indexPath.row].name
         self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 25
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60.0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -90,9 +81,5 @@ extension PickSubjectVC: UITableViewDelegate {
         view.backgroundColor = .clear
         
         return view
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.00001
     }
 }
