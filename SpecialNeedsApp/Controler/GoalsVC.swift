@@ -199,16 +199,10 @@ extension GoalsVC: UITableViewDataSource {
             
             self.spinner.startAnimating()
             
-            let arrayIndex = self.grade?.subjects?.array.firstIndex(where: { $0.name == self.subjectName }) ?? 0
-            let index = self.grade?.subjects?.array[arrayIndex].goals.firstIndex(of: selectedGoal) ?? 0
-
-            var newGoals: [String] = []
-
-            newGoals = self.goals
+            var newGoals = self.goals.filter { $0 != selectedGoal }
             newGoals.append(userText)
-            newGoals.remove(at: index)
 
-            GoalService.shared.updateGoals(goal: newGoals, key: self.subjectName ?? .other, documentID: self.documentID ?? "", index: index) { error in
+            GoalService.shared.updateGoals(goal: newGoals, key: self.subjectName ?? .other, documentID: self.documentID ?? "") { error in
                 if let error {
                     DispatchQueue.main.async {
                         self.view.makeToast(error.localizedDescription)

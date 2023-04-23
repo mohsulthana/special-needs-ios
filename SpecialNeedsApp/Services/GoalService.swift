@@ -60,7 +60,7 @@ class GoalService: ObservableObject {
             }
     }
     
-    public func updateGoals(goal: [String], key: SubjectName, documentID: String, index: Int, completion: @escaping (Error?) -> Void) {
+    public func updateGoals(goal: [String], key: SubjectName, documentID: String, completion: @escaping (Error?) -> Void) {
         let db = Firestore.firestore()
 
         db.collection("grades").document(documentID)
