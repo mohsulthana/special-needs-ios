@@ -35,7 +35,7 @@ class GoalService: ObservableObject {
 
         db.collection("grades").document(documentID)
             .updateData([
-                "subjects.\(key)": FieldValue.arrayRemove([goal]),
+                "subjects.\(key).goals": FieldValue.arrayRemove([goal]),
             ]) { err in
                 if let err {
                     completion(err)

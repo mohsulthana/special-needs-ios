@@ -696,7 +696,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 7XCD72Z473;
 				INFOPLIST_FILE = SpecialNeedsApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Special Needs";
@@ -706,7 +706,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.specialNeeds.spedgoals;
 				PRODUCT_NAME = "SPED Goals";
 				SWIFT_VERSION = 5.0;
@@ -720,7 +720,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 7XCD72Z473;
 				INFOPLIST_FILE = SpecialNeedsApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Special Needs";
@@ -730,7 +730,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.specialNeeds.spedgoals;
 				PRODUCT_NAME = "SPED Goals";
 				SWIFT_VERSION = 5.0;

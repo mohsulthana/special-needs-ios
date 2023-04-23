@@ -41,7 +41,9 @@ class GoalsVC: UIViewController {
 
     // MARK: - API Methods
     public func fetchGoals() {
-        GoalService.shared.fetchGoals(student: subjectName ?? .other, document: documentID ?? "") { goals, error in
+        let id = documentID ?? ""
+        let subject = subjectName ?? .other
+        GoalService.shared.fetchGoals(student: subject, document: id) { goals, error in
             if let error {
                 DispatchQueue.main.async {
                     self.view.makeToast(error.localizedDescription)

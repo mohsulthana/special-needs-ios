@@ -19,7 +19,7 @@ class GradeService: ObservableObject {
     public func fetchGrades(completion: @escaping ([Grades]?, Error?) -> Void) {
         let db = Firestore.firestore()
         
-        db.collection("grades").getDocuments { (querySnapshot, err) in
+        db.collection("grades").order(by: "position").getDocuments { (querySnapshot, err) in
             
             if let err = err as NSError? {
                 completion(nil, err)

@@ -599,6 +599,7 @@
                                                 <constraint firstItem="Axn-dv-LwX" firstAttribute="centerY" secondItem="CGW-cZ-CIw" secondAttribute="centerY" id="wbq-lA-C5h"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="lblTitle" destination="Axn-dv-LwX" id="kbW-dl-hWc"/>
                                         </connections>

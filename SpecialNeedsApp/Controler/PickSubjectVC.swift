@@ -52,7 +52,7 @@ extension PickSubjectVC: UITableViewDataSource {
         
         guard let grade else { return cell }
         
-        cell.lblTitle.text = grade.subjects?.array[indexPath.row].name?.rawValue
+        cell.lblTitle.text = grade.sortedGrade[indexPath.row].name?.rawValue ?? ""
         
         return cell
     }
@@ -61,9 +61,6 @@ extension PickSubjectVC: UITableViewDataSource {
 // MARK: - UITableViewDelegate Methods
 
 extension PickSubjectVC: UITableViewDelegate {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -71,8 +68,9 @@ extension PickSubjectVC: UITableViewDelegate {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "GoalsVC") as! GoalsVC
         
         guard let grade else { return }
+        
         vc.documentID = grade.documentID
-        vc.subjectName = grade.subjects?.array[indexPath.row].name
+        vc.subjectName = grade.sortedGrade[indexPath.row].name
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -81,5 +79,13 @@ extension PickSubjectVC: UITableViewDelegate {
         view.backgroundColor = .clear
         
         return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60.0
     }
 }

@@ -28,4 +28,11 @@ class PickSubjectCell: UITableViewCell {
         contentView.backgroundColor = selected == true ? .blue : .white
         lblTitle.textColor = selected == true ? .white : .black
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let margins = UIEdgeInsets(top: 0, left: 0, bottom: 8, right: 0)
+        contentView.frame = contentView.frame.inset(by: margins)
+    }
 }
