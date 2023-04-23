@@ -13,7 +13,7 @@ class AddGradeViewController: UIViewController {
     @IBOutlet weak var goalsName: UITextField!
     var grade: [String]!
     var documentID: String?
-    var subjectName: String?
+    var subjectName: SubjectName?
     var goals: [String]?
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
@@ -36,7 +36,7 @@ class AddGradeViewController: UIViewController {
     @IBAction func handleNewGoals(_ sender: Any) {
         let goalsName = goalsName.text ?? ""
         let id = documentID ?? ""
-        let subject = subjectName ?? ""
+        let subject = subjectName ?? .other
         
         let request = NewGoalRequest(documentID: id, goal: goalsName, subjectName: subject)
         
@@ -47,7 +47,10 @@ class AddGradeViewController: UIViewController {
                 return
             }
             
-            self.view.makeToast("A new goals has been added")
+            DispatchQueue.main.async {
+                self.view.makeToast("A new goal has been added")
+                self.spinner.stopAnimating()
+            }
         }
         self.dismissPage()
     }

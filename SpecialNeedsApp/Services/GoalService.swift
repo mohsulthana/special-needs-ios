@@ -50,7 +50,22 @@ class GoalService: ObservableObject {
 
         db.collection("grades").document(data.documentID)
             .updateData([
-                "subjects.\(data.subjectName.lowercased()).goals": FieldValue.arrayUnion([data.goal]),
+                "subjects.\(String(describing: data.subjectName!)).goals": FieldValue.arrayUnion([data.goal]),
+            ]) { err in
+                if let err {
+                    completion(err)
+                    return
+                }
+                completion(nil)
+            }
+    }
+    
+    public func updateGoals(goal: [String], key: SubjectName, documentID: String, index: Int, completion: @escaping (Error?) -> Void) {
+        let db = Firestore.firestore()
+
+        db.collection("grades").document(documentID)
+            .updateData([
+                "subjects.\(key.rawValue.lowercased()).goals": goal,
             ]) { err in
                 if let err {
                     completion(err)

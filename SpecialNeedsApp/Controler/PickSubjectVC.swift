@@ -71,6 +71,7 @@ extension PickSubjectVC: UITableViewDelegate {
         
         vc.documentID = grade.documentID
         vc.subjectName = grade.sortedGrade[indexPath.row].name
+        vc.grade = grade
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

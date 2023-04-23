@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct NewGoalRequest: Encodable {
+struct NewGoalRequest: Codable {
     let documentID: String
     let goal: String
-    let subjectName: String
+    let subjectName: SubjectName?
 }

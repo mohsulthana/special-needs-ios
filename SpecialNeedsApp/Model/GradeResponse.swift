@@ -49,7 +49,7 @@ struct SubjectGoals: Decodable {
     let goals: [String]
 }
 
-enum SubjectName: String, Decodable {
+enum SubjectName: String, Codable {
     case math = "Math"
     case behavior = "Behavior"
     case communication = "Communication"

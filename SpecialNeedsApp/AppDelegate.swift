@@ -128,118 +128,118 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController?.view.makeToast("Success")
         }
         
-        try? db.collection("grades").document().setData(from: kindergaten) { err in
-            if let err {
-                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
-                return
-            }
-            self.window?.rootViewController?.view.makeToast("Success")
-        }
-        
-        try? db.collection("grades").document().setData(from: firstGrade) { err in
-            if let err {
-                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
-                return
-            }
-            self.window?.rootViewController?.view.makeToast("Success")
-        }
-        
-
-        try? db.collection("grades").document().setData(from: secondGrade) { err in
-            if let err {
-                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
-                return
-            }
-            self.window?.rootViewController?.view.makeToast("Success")
-        }
-
-        try? db.collection("grades").document().setData(from: thirdGrade) { err in
-            if let err {
-                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
-                return
-            }
-            self.window?.rootViewController?.view.makeToast("Success")
-        }
-
-        try? db.collection("grades").document().setData(from: forthGrade) { err in
-            if let err {
-                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
-                return
-            }
-            self.window?.rootViewController?.view.makeToast("Success")
-        }
-
-        try? db.collection("grades").document().setData(from: fifthGrade) { err in
-            if let err {
-                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
-                return
-            }
-            self.window?.rootViewController?.view.makeToast("Success")
-        }
-
-        try? db.collection("grades").document().setData(from: sixthGrade) { err in
-            if let err {
-                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
-                return
-            }
-            self.window?.rootViewController?.view.makeToast("Success")
-        }
-
-        try? db.collection("grades").document().setData(from: seventhGrade) { err in
-            if let err {
-                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
-                return
-            }
-            self.window?.rootViewController?.view.makeToast("Success")
-        }
-
-        try? db.collection("grades").document().setData(from: eigthGrade) { err in
-            if let err {
-                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
-                return
-            }
-            self.window?.rootViewController?.view.makeToast("Success")
-        }
-
-        try? db.collection("grades").document().setData(from: ninthTenGrade) { err in
-            if let err {
-                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
-                return
-            }
-            self.window?.rootViewController?.view.makeToast("Success")
-        }
-
-        try? db.collection("grades").document().setData(from: eleventhTwelve) { err in
-            if let err {
-                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
-                return
-            }
-            self.window?.rootViewController?.view.makeToast("Success")
-        }
-        
-        try? db.collection("grades").document().setData(from: SLPGrade) { err in
-            if let err {
-                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
-                return
-            }
-            self.window?.rootViewController?.view.makeToast("Success")
-        }
-        
-        try? db.collection("grades").document().setData(from: OTGrade) { err in
-            if let err {
-                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
-                return
-            }
-            self.window?.rootViewController?.view.makeToast("Success")
-        }
-        
-        try? db.collection("grades").document().setData(from: IEPGrade) { err in
-            if let err {
-                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
-                return
-            }
-            self.window?.rootViewController?.view.makeToast("Success")
-        }
+//        try? db.collection("grades").document().setData(from: kindergaten) { err in
+//            if let err {
+//                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
+//                return
+//            }
+//            self.window?.rootViewController?.view.makeToast("Success")
+//        }
+//        
+//        try? db.collection("grades").document().setData(from: firstGrade) { err in
+//            if let err {
+//                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
+//                return
+//            }
+//            self.window?.rootViewController?.view.makeToast("Success")
+//        }
+//        
+//
+//        try? db.collection("grades").document().setData(from: secondGrade) { err in
+//            if let err {
+//                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
+//                return
+//            }
+//            self.window?.rootViewController?.view.makeToast("Success")
+//        }
+//
+//        try? db.collection("grades").document().setData(from: thirdGrade) { err in
+//            if let err {
+//                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
+//                return
+//            }
+//            self.window?.rootViewController?.view.makeToast("Success")
+//        }
+//
+//        try? db.collection("grades").document().setData(from: forthGrade) { err in
+//            if let err {
+//                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
+//                return
+//            }
+//            self.window?.rootViewController?.view.makeToast("Success")
+//        }
+//
+//        try? db.collection("grades").document().setData(from: fifthGrade) { err in
+//            if let err {
+//                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
+//                return
+//            }
+//            self.window?.rootViewController?.view.makeToast("Success")
+//        }
+//
+//        try? db.collection("grades").document().setData(from: sixthGrade) { err in
+//            if let err {
+//                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
+//                return
+//            }
+//            self.window?.rootViewController?.view.makeToast("Success")
+//        }
+//
+//        try? db.collection("grades").document().setData(from: seventhGrade) { err in
+//            if let err {
+//                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
+//                return
+//            }
+//            self.window?.rootViewController?.view.makeToast("Success")
+//        }
+//
+//        try? db.collection("grades").document().setData(from: eigthGrade) { err in
+//            if let err {
+//                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
+//                return
+//            }
+//            self.window?.rootViewController?.view.makeToast("Success")
+//        }
+//
+//        try? db.collection("grades").document().setData(from: ninthTenGrade) { err in
+//            if let err {
+//                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
+//                return
+//            }
+//            self.window?.rootViewController?.view.makeToast("Success")
+//        }
+//
+//        try? db.collection("grades").document().setData(from: eleventhTwelve) { err in
+//            if let err {
+//                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
+//                return
+//            }
+//            self.window?.rootViewController?.view.makeToast("Success")
+//        }
+//        
+//        try? db.collection("grades").document().setData(from: SLPGrade) { err in
+//            if let err {
+//                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
+//                return
+//            }
+//            self.window?.rootViewController?.view.makeToast("Success")
+//        }
+//        
+//        try? db.collection("grades").document().setData(from: OTGrade) { err in
+//            if let err {
+//                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
+//                return
+//            }
+//            self.window?.rootViewController?.view.makeToast("Success")
+//        }
+//        
+//        try? db.collection("grades").document().setData(from: IEPGrade) { err in
+//            if let err {
+//                self.window?.rootViewController?.view.makeToast(err.localizedDescription)
+//                return
+//            }
+//            self.window?.rootViewController?.view.makeToast("Success")
+//        }
     }
 
     // MARK: - Custom Methods
