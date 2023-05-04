@@ -25,6 +25,7 @@ class GoalsVC: UIViewController {
             }
         }
     }
+    var userToken = UserDefaults.standard.string(forKey: "superAdminToken")
 
     // MARK: - View Lifecycle Methods
 
@@ -33,8 +34,42 @@ class GoalsVC: UIViewController {
         navigationItem.title = subjectName?.rawValue ?? ""
         tableView.isHidden = spinner.isAnimating ? true : false
         fetchGoals()
+        
+        var appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.backgroundColor = .primaryColor
+        self.navigationItem.standardAppearance = appearance
+        self.navigationItem.scrollEdgeAppearance = appearance
+        
+        addNavigationBar()
+    }
+    
+    private func addNavigationBar() {
+        
+        var buttons = [UIBarButtonItem]()
+        
+        if (userToken == nil) {
+            let button = UIButton(type: .custom)
+            button.setImage(UIImage(systemName: "key.horizontal"), for: .normal)
+            button.addTarget(self, action: #selector(keyPressed), for: .touchUpInside)
+            button.frame = CGRect(x: 0, y: 0, width: 53, height: 51)
+            buttons.append(UIBarButtonItem(customView: button))
+        } else {
+            buttons.append(UIBarButtonItem(title: "Play", style: .plain, target: self, action: #selector(playTapped)))
+        }
+
+        navigationItem.rightBarButtonItems = buttons
+    }
+    
+    @objc private func keyPressed() {
+        
     }
 
+    @objc private func playTapped() {
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchGoals()
@@ -125,9 +160,13 @@ extension GoalsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: GoalsCell.cellID, for: indexPath) as! GoalsCell
 
-        cell.lblGoals.text = goals[indexPath.row]
+        cell.lblGoals.text = "\(indexPath.row + 1). \(goals[indexPath.row])"
 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return UITableViewCell.EditingStyle.none
     }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

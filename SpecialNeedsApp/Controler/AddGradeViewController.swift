@@ -25,8 +25,15 @@ class AddGradeViewController: UIViewController {
     
     func setupNavigationBar() {
         let backButton = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(dismissPage))
-        backButton.tintColor = UIColor.primaryColor
+        backButton.tintColor = .white
         navigationItem.leftBarButtonItem = backButton
+        
+        var appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.backgroundColor = .primaryColor
+        self.navigationItem.standardAppearance = appearance
+        self.navigationItem.scrollEdgeAppearance = appearance
     }
     
     @objc func dismissPage() {

@@ -10,6 +10,7 @@ import UIKit
 
 class GoalsCell: UITableViewCell {
     
+    @IBOutlet weak var lblGoalsSubtitle: UILabel!
     @IBOutlet weak var lblGoals: UILabel!
        
     static var cellID = "GoalsCellID"

@@ -92,10 +92,7 @@ class AuthService {
     public func fetchUser(completion: @escaping (User?, Error?) -> Void) {
         guard let userUID = Auth.auth().currentUser?.uid else { return }
         
-        let db = Firestore.firestore()
-        
-        db.collection("users")
-            .document(userUID)
+        FirebaseHelper.shared.userCollection().document(userUID)
             .getDocument { snapshot, error in
                 if let error {
                     completion(nil, error)

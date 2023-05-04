@@ -11,6 +11,7 @@ import UIKit
 class PickSubjectCell: UITableViewCell {
     
     @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var labelSubtitle: UILabel!
     
     static var cellID = "PickSubjectCellID"
 
@@ -27,6 +28,7 @@ class PickSubjectCell: UITableViewCell {
 
         contentView.backgroundColor = selected == true ? .blue : .white
         lblTitle.textColor = selected == true ? .white : .black
+        labelSubtitle.textColor = .darkGray
     }
     
     override func layoutSubviews() {

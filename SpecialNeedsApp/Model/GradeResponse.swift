@@ -20,7 +20,6 @@ struct SubjectObject: Decodable {
     private struct DynamicCodingKeys: CodingKey {
         var intValue: Int?
         init?(intValue: Int) {
-            // We are not using this, thus just return nil
             return nil
         }
 
@@ -63,6 +62,8 @@ enum SubjectName: String, Codable {
     case math_word_problem = "Math Word Problem"
     case math_computation = "Math Computation"
     case ela = "ELA"
+    case math_algebra_geometry = "Math Algebra Geometry"
+    case vocational = "Vocational"
     case articulation = "Articulation"
     case augmented_and_alterative_communication = "Augmented and Alternative Communication"
     case expressive_language = "Expressive Language"
@@ -100,6 +101,8 @@ enum SubjectName: String, Codable {
         case "reading_comprehesion": self = .reading_comprehesion
         case "math_word_problem": self = .math_word_problem
         case "math_computation": self = .math_computation
+        case "math_algebra_geometry": self = .math_algebra_geometry
+        case "vocational": self = .vocational
         case "ela": self = .ela
         case "articulation": self = .articulation
         case "augmented_and_alterative_communication": self = .augmented_and_alterative_communication

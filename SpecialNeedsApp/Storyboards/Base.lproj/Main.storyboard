@@ -562,13 +562,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick your preferred subject &amp; check out the goals we set for it." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzr-Nd-Nda">
-                                <rect key="frame" x="75.5" y="122" width="263" height="41"/>
+                                <rect key="frame" x="75.5" y="78" width="263" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UIQ-wU-muA">
-                                <rect key="frame" x="20" y="183" width="374" height="679"/>
+                                <rect key="frame" x="20" y="139" width="374" height="723"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PickSubjectCellID" rowHeight="60" id="hGk-lk-R8R" customClass="PickSubjectCell" customModule="SPED_Goals" customModuleProvider="target">
@@ -591,16 +591,25 @@
                                                         <constraint firstAttribute="width" constant="25" id="UE6-pq-JR3"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBn-TI-eMf">
+                                                    <rect key="frame" x="291" y="19.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Axn-dv-LwX" firstAttribute="leading" secondItem="CGW-cZ-CIw" secondAttribute="leading" constant="8" id="99k-yV-Cyx"/>
+                                                <constraint firstItem="iYK-oQ-Se3" firstAttribute="leading" secondItem="YBn-TI-eMf" secondAttribute="trailing" constant="8" id="Jtr-nf-Phg"/>
                                                 <constraint firstItem="iYK-oQ-Se3" firstAttribute="centerY" secondItem="CGW-cZ-CIw" secondAttribute="centerY" id="UL2-qb-pXW"/>
                                                 <constraint firstAttribute="trailing" secondItem="iYK-oQ-Se3" secondAttribute="trailing" constant="8" id="bcB-Uh-wXZ"/>
+                                                <constraint firstItem="YBn-TI-eMf" firstAttribute="centerY" secondItem="CGW-cZ-CIw" secondAttribute="centerY" id="s2Q-FE-SEx"/>
                                                 <constraint firstItem="Axn-dv-LwX" firstAttribute="centerY" secondItem="CGW-cZ-CIw" secondAttribute="centerY" id="wbq-lA-C5h"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
+                                            <outlet property="labelSubtitle" destination="YBn-TI-eMf" id="dcw-j0-nrh"/>
                                             <outlet property="lblTitle" destination="Axn-dv-LwX" id="kbW-dl-hWc"/>
                                         </connections>
                                     </tableViewCell>
@@ -613,6 +622,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rnM-10-bpy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" red="0.1441017389" green="0.30052626129999999" blue="0.37255927919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="rnM-10-bpy" firstAttribute="bottom" secondItem="UIQ-wU-muA" secondAttribute="bottom" id="5EJ-4v-cTM"/>
                             <constraint firstItem="kzr-Nd-Nda" firstAttribute="centerX" secondItem="wER-fB-TCZ" secondAttribute="centerX" id="Rne-ZZ-UnJ"/>
@@ -622,7 +632,6 @@
                             <constraint firstItem="UIQ-wU-muA" firstAttribute="top" secondItem="kzr-Nd-Nda" secondAttribute="bottom" constant="20" id="x2C-X2-dep"/>
                         </constraints>
                     </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CxW-tP-63a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -677,6 +686,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TQa-OD-4Cf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" red="0.1441017389" green="0.30052626129999999" blue="0.37255927919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="TQa-OD-4Cf" firstAttribute="bottom" secondItem="X2N-4f-oU2" secondAttribute="bottom" id="2Yz-Zi-0vB"/>
                             <constraint firstItem="TQa-OD-4Cf" firstAttribute="trailing" secondItem="X2N-4f-oU2" secondAttribute="trailing" id="Amy-0a-fYs"/>
@@ -689,11 +699,6 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="YZY-1V-P8l">
                         <barButtonItem key="backBarButtonItem" title="Back" id="ox8-5t-fPk"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="K40-t4-PGR">
-                            <connections>
-                                <action selector="btnAddGoalAction" destination="uFd-Gr-m5Y" id="yvk-nc-Vzn"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -861,6 +866,15 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="navigationBar:ZFE-Ia-Txh:backIndicatorImage" id="ZFE-Ia-Txh">
                         <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.1441017389" green="0.30052626129999999" blue="0.37255927919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vyh-6v-7Ye">

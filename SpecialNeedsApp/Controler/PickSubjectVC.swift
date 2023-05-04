@@ -20,6 +20,12 @@ class PickSubjectVC: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+        var appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.backgroundColor = .primaryColor
+        self.navigationItem.standardAppearance = appearance
+        self.navigationItem.scrollEdgeAppearance = appearance
     }
     
     // MARK: - Notification Methods
@@ -53,7 +59,7 @@ extension PickSubjectVC: UITableViewDataSource {
         guard let grade else { return cell }
         
         cell.lblTitle.text = grade.sortedGrade[indexPath.row].name?.rawValue ?? ""
-        
+        cell.labelSubtitle.text = "\(grade.sortedGrade[indexPath.row].goals.count) goals"
         return cell
     }
 }

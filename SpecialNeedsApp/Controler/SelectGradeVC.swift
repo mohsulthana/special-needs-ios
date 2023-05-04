@@ -37,6 +37,18 @@ class SelectGradeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchSuperadminToken()
+    }
+    
+    public func fetchSuperadminToken() {
+        UserService.shared.unlockSuperadminAccess(inputtedKey: "abcd") { token, error in
+            if !(error?.isEmpty ?? true) {
+                self.view.makeToast(error)
+                return
+            }
+            self.view.makeToast("Token is valid")
+//            UserDefaults.standard.set(token, forKey: "superAdminToken")
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

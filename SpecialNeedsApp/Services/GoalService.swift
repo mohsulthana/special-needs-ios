@@ -14,9 +14,7 @@ class GoalService: ObservableObject {
     private init() {}
 
     public func fetchGoals(student: SubjectName?, document: String, completion: @escaping ([String]?, Error?) -> Void) {
-        let db = Firestore.firestore()
-
-        let docRef = db.collection("grades").document(document)
+        let docRef = FirebaseHelper.shared.gradeCollection().document(document)
 
         Task {
             do {
@@ -31,9 +29,7 @@ class GoalService: ObservableObject {
     }
 
     public func deleteGoal(goal: String, key: SubjectName, documentID: String, completion: @escaping (Error?) -> Void) {
-        let db = Firestore.firestore()
-
-        db.collection("grades").document(documentID)
+        FirebaseHelper.shared.gradeCollection().document(documentID)
             .updateData([
                 "subjects.\(key).goals": FieldValue.arrayRemove([goal]),
             ]) { err in
@@ -46,11 +42,9 @@ class GoalService: ObservableObject {
     }
 
     public func createNewGoals(with data: NewGoalRequest, completion: @escaping (Error?) -> Void) {
-        let db = Firestore.firestore()
-
-        db.collection("grades").document(data.documentID)
+        FirebaseHelper.shared.gradeCollection().document(data.documentID)
             .updateData([
-                "subjects.\(String(describing: data.subjectName!)).goals": FieldValue.arrayUnion([data.goal]),
+                "subjects.\(String(describing: data.subjectName!).lowercased()).goals": FieldValue.arrayUnion([data.goal]),
             ]) { err in
                 if let err {
                     completion(err)
@@ -61,11 +55,9 @@ class GoalService: ObservableObject {
     }
     
     public func updateGoals(goal: [String], key: SubjectName, documentID: String, completion: @escaping (Error?) -> Void) {
-        let db = Firestore.firestore()
-
-        db.collection("grades").document(documentID)
+        FirebaseHelper.shared.gradeCollection().document(documentID)
             .updateData([
-                "subjects.\(key.rawValue.lowercased()).goals": goal,
+                "subjects.\(String(describing: key).lowercased()).goals": goal,
             ]) { err in
                 if let err {
                     completion(err)
