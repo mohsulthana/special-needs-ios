@@ -42,11 +42,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     public func checkAuthentication() {
         if Auth.auth().currentUser == nil {
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let baseNC = mainStoryboard.instantiateViewController(withIdentifier: "Base_NC") as! UINavigationController
+            let baseNC = mainStoryboard.instantiateViewController(withIdentifier: "TabbarStoryboard")
             window?.rootViewController = baseNC
         } else {
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let baseNC = mainStoryboard.instantiateViewController(withIdentifier: "TabbarStoryboard")
+            let baseNC = mainStoryboard.instantiateViewController(withIdentifier: "Base_NC")
             window?.rootViewController = baseNC
         }
     }

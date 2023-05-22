@@ -38,6 +38,7 @@ import UIKit
         layer.cornerRadius = borderRadius
         backgroundColor = UIColor.primaryColor
         tintColor = UIColor.primaryColor
+        self.setTitleColor(UIColor.white, for: .normal)
         self.titleEdgeInsets = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 0)
     }
 }

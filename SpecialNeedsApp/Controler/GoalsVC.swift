@@ -25,7 +25,14 @@ class GoalsVC: UIViewController {
             }
         }
     }
-    var userToken = UserDefaults.standard.string(forKey: "superAdminToken")
+    var userToken = UserDefaults.standard.string(forKey: "superAdminToken") {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        
+    }
 
     // MARK: - View Lifecycle Methods
 
@@ -35,7 +42,7 @@ class GoalsVC: UIViewController {
         tableView.isHidden = spinner.isAnimating ? true : false
         fetchGoals()
         
-        var appearance = UINavigationBarAppearance()
+        let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         appearance.backgroundColor = .primaryColor
@@ -46,28 +53,70 @@ class GoalsVC: UIViewController {
     }
     
     private func addNavigationBar() {
-        
-        var buttons = [UIBarButtonItem]()
-        
         if (userToken == nil) {
             let button = UIButton(type: .custom)
             button.setImage(UIImage(systemName: "key.horizontal"), for: .normal)
             button.addTarget(self, action: #selector(keyPressed), for: .touchUpInside)
-            button.frame = CGRect(x: 0, y: 0, width: 53, height: 51)
-            buttons.append(UIBarButtonItem(customView: button))
+            button.frame = CGRect(x: 0, y: 0, width: 51, height: 51)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
         } else {
-            buttons.append(UIBarButtonItem(title: "Play", style: .plain, target: self, action: #selector(playTapped)))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Play", style: .plain, target: self, action: #selector(playTapped))
         }
-
-        navigationItem.rightBarButtonItems = buttons
     }
     
     @objc private func keyPressed() {
-        
+        let alert = UIAlertController(title: "Token", message: "Insert token to unlock access", preferredStyle: .alert)
+        alert.addTextField { textField in
+            textField.placeholder = "Input your token here"
+            textField.clearButtonMode = .whileEditing
+            textField.addTarget(alert, action: #selector(alert.textValidateEmptyText), for: .editingChanged)
+        }
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            self.dismiss(animated: true)
+        }))
+
+        alert.addAction(UIAlertAction(title: "Validate", style: .default, handler: { [weak alert] _ in
+            guard let textField = alert?.textFields?[0], let userText = textField.text else { return }
+            
+            self.spinner.startAnimating()
+            
+            UserService.shared.unlockSuperadminAccess(inputtedKey: userText) { token, error in
+                if !(error?.isEmpty ?? true) {
+                    self.view.makeToast(error)
+                    self.spinner.stopAnimating()
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    self.view.makeToast("Access unlocked")
+                    UINotificationFeedbackGenerator().notificationOccurred(.success)
+                    UserDefaults.standard.set(token, forKey: "superAdminToken")
+                    self.userToken = token
+                    self.spinner.stopAnimating()
+                }
+                
+                let button = UIButton(type: .custom)
+                button.setImage(UIImage(systemName: "lock.open"), for: .normal)
+                button.addTarget(self, action: #selector(self.playTapped), for: .touchUpInside)
+                button.frame = CGRect(x: 0, y: 0, width: 51, height: 51)
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+            }
+        }))
+
+        present(alert, animated: true, completion: nil)
     }
 
     @objc private func playTapped() {
-        
+        UserDefaults.standard.removeObject(forKey: "superAdminToken")
+        userToken = nil
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(systemName: "key.horizontal"), for: .normal)
+        button.addTarget(self, action: #selector(keyPressed), for: .touchUpInside)
+        button.frame = CGRect(x: 0, y: 0, width: 51, height: 51)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+        UINotificationFeedbackGenerator().notificationOccurred(.success)
+        view.makeToast("Access locked")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -185,7 +234,7 @@ extension GoalsVC: UITableViewDataSource {
             completionHandler(true)
         }
 
-        let configuration = UISwipeActionsConfiguration(actions: [trash, edit])
+        let configuration = userToken == nil ? UISwipeActionsConfiguration.init() : UISwipeActionsConfiguration(actions: [trash, edit])
 
         return configuration
     }

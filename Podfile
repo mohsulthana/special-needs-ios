@@ -11,4 +11,5 @@ target 'SpecialNeedsApp' do
 
  pod 'SwiftyJSON', '~> 5.0.0'
  pod 'IQKeyboardManagerSwift'
+ pod 'Charts'
 end

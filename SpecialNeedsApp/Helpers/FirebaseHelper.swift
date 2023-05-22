@@ -22,4 +22,9 @@ class FirebaseHelper {
         let db = Firestore.firestore()
         return db.collection("grades")
     }
+    
+    public func studentCollection() -> CollectionReference {
+        let db = Firestore.firestore()
+        return db.collection("students")
+    }
 }

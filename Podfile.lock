@@ -1,30 +1,40 @@
 PODS:
+  - Charts (4.1.0):
+    - Charts/Core (= 4.1.0)
+  - Charts/Core (4.1.0):
+    - SwiftAlgorithms (~> 1.0)
   - IQKeyboardManagerSwift (6.5.11)
   - Realm (10.38.0):
     - Realm/Headers (= 10.38.0)
   - Realm/Headers (10.38.0)
   - RealmSwift (10.38.0):
     - Realm (= 10.38.0)
+  - SwiftAlgorithms (1.0.0)
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
+  - Charts
   - IQKeyboardManagerSwift
   - RealmSwift
   - SwiftyJSON (~> 5.0.0)
 
 SPEC REPOS:
   trunk:
+    - Charts
     - IQKeyboardManagerSwift
     - Realm
     - RealmSwift
+    - SwiftAlgorithms
     - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Charts: 354f86803d11d9c35de280587fef50d1af063978
   IQKeyboardManagerSwift: c7955c0bdbf7b2eb29bb7daaa44e3d90f55a9a85
   Realm: 5902885dd1d5e71b0b020830caab937ecdf5bf07
   RealmSwift: 0fc037d6c32c7c4fc9362892380f380114ecdcf0
+  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: ff5400373e42915def0d4f72af7c097f7c2c4865
+PODFILE CHECKSUM: 368c67d3d890e7abecf995fc22219df3b060f398
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.12.1

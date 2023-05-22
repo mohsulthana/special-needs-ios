@@ -21,6 +21,17 @@
 		174526F429EF0944003D1D18 /* NewGradeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174526F329EF0944003D1D18 /* NewGradeRequest.swift */; };
 		1755B11B29E6B2ED00D2BA3C /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755B11A29E6B2ED00D2BA3C /* Validator.swift */; };
 		1755B11D29E6B50B00D2BA3C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755B11C29E6B50B00D2BA3C /* User.swift */; };
+		175FABE92A193929003E8EA2 /* AddStudentTargetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175FABE82A193929003E8EA2 /* AddStudentTargetRequest.swift */; };
+		175FABEB2A1A0F85003E8EA2 /* ChartXAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175FABEA2A1A0F84003E8EA2 /* ChartXAxisFormatter.swift */; };
+		175FABED2A1A2A4B003E8EA2 /* AddStudentProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175FABEC2A1A2A4B003E8EA2 /* AddStudentProgressViewController.swift */; };
+		175FABEF2A1A5774003E8EA2 /* AddProgressRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175FABEE2A1A5774003E8EA2 /* AddProgressRequest.swift */; };
+		176C64812A094A7E00267610 /* StudentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176C64802A094A7E00267610 /* StudentService.swift */; };
+		176C64832A094D8D00267610 /* StudentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176C64822A094D8D00267610 /* StudentResponse.swift */; };
+		176C64852A094DAE00267610 /* StudentsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176C64842A094DAE00267610 /* StudentsModel.swift */; };
+		176C64872A0950DB00267610 /* StudentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176C64862A0950DB00267610 /* StudentDetailViewController.swift */; };
+		176C64892A09558D00267610 /* AddStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176C64882A09558D00267610 /* AddStudentViewController.swift */; };
+		176C648B2A09562100267610 /* AddStudentTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176C648A2A09562100267610 /* AddStudentTargetViewController.swift */; };
+		176C648E2A0958E700267610 /* iOSDropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 176C648D2A0958E700267610 /* iOSDropDown */; };
 		17866DA429F07342007E6753 /* GoalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17866DA329F07342007E6753 /* GoalService.swift */; };
 		17866DA629F075C9007E6753 /* UpdateSubjectRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17866DA529F075C9007E6753 /* UpdateSubjectRequest.swift */; };
 		178D1B7829F1AD970033689E /* PrimaryFilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178D1B7729F1AD970033689E /* PrimaryFilledButton.swift */; };
@@ -106,6 +117,16 @@
 		174526F329EF0944003D1D18 /* NewGradeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGradeRequest.swift; sourceTree = "<group>"; };
 		1755B11A29E6B2ED00D2BA3C /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		1755B11C29E6B50B00D2BA3C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		175FABE82A193929003E8EA2 /* AddStudentTargetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentTargetRequest.swift; sourceTree = "<group>"; };
+		175FABEA2A1A0F84003E8EA2 /* ChartXAxisFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartXAxisFormatter.swift; sourceTree = "<group>"; };
+		175FABEC2A1A2A4B003E8EA2 /* AddStudentProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentProgressViewController.swift; sourceTree = "<group>"; };
+		175FABEE2A1A5774003E8EA2 /* AddProgressRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProgressRequest.swift; sourceTree = "<group>"; };
+		176C64802A094A7E00267610 /* StudentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentService.swift; sourceTree = "<group>"; };
+		176C64822A094D8D00267610 /* StudentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentResponse.swift; sourceTree = "<group>"; };
+		176C64842A094DAE00267610 /* StudentsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsModel.swift; sourceTree = "<group>"; };
+		176C64862A0950DB00267610 /* StudentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDetailViewController.swift; sourceTree = "<group>"; };
+		176C64882A09558D00267610 /* AddStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentViewController.swift; sourceTree = "<group>"; };
+		176C648A2A09562100267610 /* AddStudentTargetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentTargetViewController.swift; sourceTree = "<group>"; };
 		17866DA329F07342007E6753 /* GoalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalService.swift; sourceTree = "<group>"; };
 		17866DA529F075C9007E6753 /* UpdateSubjectRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateSubjectRequest.swift; sourceTree = "<group>"; };
 		178D1B7729F1AD970033689E /* PrimaryFilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryFilledButton.swift; sourceTree = "<group>"; };
@@ -176,6 +197,7 @@
 				17C838E329E56FCE00FE5BBC /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				17C8390529E56FCE00FE5BBC /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				17C8391129E56FCE00FE5BBC /* FirebaseRemoteConfigSwift in Frameworks */,
+				176C648E2A0958E700267610 /* iOSDropDown in Frameworks */,
 				17C838E529E56FCE00FE5BBC /* FirebaseAnalyticsSwift in Frameworks */,
 				17C838EB29E56FCE00FE5BBC /* FirebaseAppDistribution-Beta in Frameworks */,
 				17C8390F29E56FCE00FE5BBC /* FirebaseRemoteConfig in Frameworks */,
@@ -205,6 +227,7 @@
 				1716219029EDC2B2009AF02A /* GradeService.swift */,
 				17866DA329F07342007E6753 /* GoalService.swift */,
 				173AE7712A03C44E00356CD7 /* UserService.swift */,
+				176C64802A094A7E00267610 /* StudentService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -216,6 +239,31 @@
 				743105C38BA08616CD45A4A3 /* Pods-SpecialNeedsApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		175FABE52A193905003E8EA2 /* Student */ = {
+			isa = PBXGroup;
+			children = (
+				175FABE72A193915003E8EA2 /* Request */,
+				175FABE62A19390D003E8EA2 /* Response */,
+			);
+			path = Student;
+			sourceTree = "<group>";
+		};
+		175FABE62A19390D003E8EA2 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		175FABE72A193915003E8EA2 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				175FABE82A193929003E8EA2 /* AddStudentTargetRequest.swift */,
+				175FABEE2A1A5774003E8EA2 /* AddProgressRequest.swift */,
+			);
+			path = Request;
 			sourceTree = "<group>";
 		};
 		176B71CE29F1ACE10033DAD7 /* Global */ = {
@@ -284,6 +332,7 @@
 		9A55F9E1238BD51000B38A32 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				175FABE52A193905003E8EA2 /* Student */,
 				9A55F9EF238D15A600B38A32 /* Grade.swift */,
 				9A55F9F1238D15B700B38A32 /* Subject.swift */,
 				9A55F9F3238D15BF00B38A32 /* Goal.swift */,
@@ -299,6 +348,8 @@
 				171F18F629F2BAE900A67FCD /* PrekDataModel.swift */,
 				171F18F829F2BC6E00A67FCD /* KindergatenDataModel.swift */,
 				173AE7732A03C78300356CD7 /* UserResponse.swift */,
+				176C64822A094D8D00267610 /* StudentResponse.swift */,
+				176C64842A094DAE00267610 /* StudentsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -330,6 +381,10 @@
 				17C6A0B229E7AD550032B90A /* ProfileViewController.swift */,
 				17D2FC9129E83C750043F0DF /* RegisterViewController.swift */,
 				174526F129EF06F9003D1D18 /* AddGradeViewController.swift */,
+				176C64862A0950DB00267610 /* StudentDetailViewController.swift */,
+				176C64882A09558D00267610 /* AddStudentViewController.swift */,
+				176C648A2A09562100267610 /* AddStudentTargetViewController.swift */,
+				175FABEC2A1A2A4B003E8EA2 /* AddStudentProgressViewController.swift */,
 			);
 			path = Controler;
 			sourceTree = "<group>";
@@ -351,6 +406,7 @@
 				17D2FC9729E866930043F0DF /* UITextField.swift */,
 				178D1B7B29F1C51A0033689E /* UITableView+Empty.swift */,
 				171C751229F4E23B00E60EB1 /* UIAlertController.swift */,
+				175FABEA2A1A0F84003E8EA2 /* ChartXAxisFormatter.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -412,6 +468,7 @@
 				17C8391229E56FCE00FE5BBC /* FirebaseStorage */,
 				17C8391429E56FCE00FE5BBC /* FirebaseStorageCombine-Community */,
 				17C6A0B529E7AED90032B90A /* Toast */,
+				176C648D2A0958E700267610 /* iOSDropDown */,
 			);
 			productName = SpecialNeedsApp;
 			productReference = 9A55F9CA238BCC3400B38A32 /* SPED Goals.app */;
@@ -444,6 +501,7 @@
 			packageReferences = (
 				17C838DF29E56FCE00FE5BBC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				17C6A0B429E7AED90032B90A /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				176C648C2A0958E700267610 /* XCRemoteSwiftPackageReference "iOSDropDown" */,
 			);
 			productRefGroup = 9A55F9CB238BCC3400B38A32 /* Products */;
 			projectDirPath = "";
@@ -524,12 +582,14 @@
 				17C8391B29E5AED300FE5BBC /* AuthService.swift in Sources */,
 				171F18F929F2BC6E00A67FCD /* KindergatenDataModel.swift in Sources */,
 				178D1B7C29F1C51A0033689E /* UITableView+Empty.swift in Sources */,
+				176C64892A09558D00267610 /* AddStudentViewController.swift in Sources */,
 				9A55F9EC238D130500B38A32 /* SelectGradeVC.swift in Sources */,
 				17C6A0B129E7A9820032B90A /* TeacherViewController.swift in Sources */,
 				173AE7742A03C78300356CD7 /* UserResponse.swift in Sources */,
 				17C6A0B329E7AD550032B90A /* ProfileViewController.swift in Sources */,
 				9A55F9CE238BCC3400B38A32 /* AppDelegate.swift in Sources */,
 				17C8391F29E5BFB200FE5BBC /* LoginUserRequest.swift in Sources */,
+				176C64872A0950DB00267610 /* StudentDetailViewController.swift in Sources */,
 				9A55F9F9238D79DC00B38A32 /* GoalsVC.swift in Sources */,
 				17C6A0AD29E7A9350032B90A /* TabViewController.swift in Sources */,
 				171F18F729F2BAE900A67FCD /* PrekDataModel.swift in Sources */,
@@ -538,6 +598,8 @@
 				174526F229EF06F9003D1D18 /* AddGradeViewController.swift in Sources */,
 				17866DA429F07342007E6753 /* GoalService.swift in Sources */,
 				1716219329EDC3B3009AF02A /* GradeResponse.swift in Sources */,
+				175FABEB2A1A0F85003E8EA2 /* ChartXAxisFormatter.swift in Sources */,
+				175FABED2A1A2A4B003E8EA2 /* AddStudentProgressViewController.swift in Sources */,
 				3DF3BBDE263AA08D0015CF7E /* BillingController.swift in Sources */,
 				173AE7722A03C44E00356CD7 /* UserService.swift in Sources */,
 				174526F429EF0944003D1D18 /* NewGradeRequest.swift in Sources */,
@@ -545,15 +607,21 @@
 				AF48D5EF2406A482008B2F90 /* Utils.swift in Sources */,
 				17D2FC9829E866930043F0DF /* UITextField.swift in Sources */,
 				174526F029EEDC53003D1D18 /* Grades.swift in Sources */,
+				176C64832A094D8D00267610 /* StudentResponse.swift in Sources */,
 				17866DA629F075C9007E6753 /* UpdateSubjectRequest.swift in Sources */,
 				17C6A0AF29E7A95E0032B90A /* StudentViewController.swift in Sources */,
 				9A55F9E8238BDDCD00B38A32 /* PickSubjectCell.swift in Sources */,
+				176C64852A094DAE00267610 /* StudentsModel.swift in Sources */,
+				176C64812A094A7E00267610 /* StudentService.swift in Sources */,
 				171F18F329F294F200A67FCD /* FirebaseHelper.swift in Sources */,
 				171C751329F4E23B00E60EB1 /* UIAlertController.swift in Sources */,
 				9A55F9F0238D15A600B38A32 /* Grade.swift in Sources */,
+				175FABE92A193929003E8EA2 /* AddStudentTargetRequest.swift in Sources */,
+				176C648B2A09562100267610 /* AddStudentTargetViewController.swift in Sources */,
 				9A55F9F7238D1BBD00B38A32 /* Object+Extensions.swift in Sources */,
 				9A55F9FB238D7B7600B38A32 /* GoalsCell.swift in Sources */,
 				9A55F9E4238BD54200B38A32 /* SelectYourGradeCell.swift in Sources */,
+				175FABEF2A1A5774003E8EA2 /* AddProgressRequest.swift in Sources */,
 				17C8391D29E5AFBB00FE5BBC /* RegisterUserRequest.swift in Sources */,
 				1755B11B29E6B2ED00D2BA3C /* Validator.swift in Sources */,
 				17C8391929E5A65200FE5BBC /* LoginViewController.swift in Sources */,
@@ -708,7 +776,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 7XCD72Z473;
 				INFOPLIST_FILE = SpecialNeedsApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Special Needs";
@@ -718,7 +786,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.4.3;
+				MARKETING_VERSION = 2.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.specialNeeds.spedgoals;
 				PRODUCT_NAME = "SPED Goals";
 				SWIFT_VERSION = 5.0;
@@ -732,7 +800,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 7XCD72Z473;
 				INFOPLIST_FILE = SpecialNeedsApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Special Needs";
@@ -742,7 +810,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.4.3;
+				MARKETING_VERSION = 2.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.specialNeeds.spedgoals;
 				PRODUCT_NAME = "SPED Goals";
 				SWIFT_VERSION = 5.0;
@@ -774,6 +842,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		176C648C2A0958E700267610 /* XCRemoteSwiftPackageReference "iOSDropDown" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jriosdev/iOSDropDown";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.0;
+			};
+		};
 		17C6A0B429E7AED90032B90A /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift";
@@ -793,6 +869,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		176C648D2A0958E700267610 /* iOSDropDown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 176C648C2A0958E700267610 /* XCRemoteSwiftPackageReference "iOSDropDown" */;
+			productName = iOSDropDown;
+		};
 		17C6A0B529E7AED90032B90A /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 17C6A0B429E7AED90032B90A /* XCRemoteSwiftPackageReference "Toast-Swift" */;

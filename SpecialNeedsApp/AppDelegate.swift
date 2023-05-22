@@ -45,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
 //        createFirestoreData()
+        UserDefaults.standard.removeObject(forKey: "superAdminToken")
 
         return true
     }

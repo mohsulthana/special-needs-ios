@@ -23,22 +23,23 @@ class UserService {
             for document in querySnapshot!.documents {
                 let data = try? document.data(as: UserResponse.self)
             
-                guard let key = data?.key else {
+                guard let data else {
                     continue
                 }
                 
-                if key != inputtedKey {
-                    continue
+                if data.key == inputtedKey {
+                    if data.role == 0 {
+                        completion(data.key, nil)
+                    } else {
+                        completion(nil, "Key found, but you don't have access to this action. Please contact administrator")
+                    }
+                    return
                 }
                 
-                if data?.role != 0 {
-                    completion(nil, "Key found, but you don't have access to this action. Please contact administrator")
-                } else if key.isEmpty {
-                    completion(nil, "Key not found. Please try again with another key")
-                } else {
-                    completion(key, nil)
-                }
+                continue
             }
+            completion(nil, "Key not found. Please try again with another key")
+            return
         }
     }
 }
