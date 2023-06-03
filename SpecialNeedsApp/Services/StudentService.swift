@@ -29,14 +29,14 @@ class StudentService {
                 var studentProgress: ProgressModel?
 
                 do {
-                    let progress: ProgressModel = try await getStudentProgress(documentID: doc.documentID) ?? ProgressModel(goal: nil, grade: nil, subject: nil, data: nil, documentID: nil)
+                    let progress: ProgressModel = try await getStudentProgress(documentID: doc.documentID) ?? ProgressModel(goal: nil, grade: nil, subject: nil, data: nil, documentID: nil, endDate: nil)
                     studentProgress = progress
                 } catch {
                     print("Error: \(error)")
                     continue
                 }
 
-                let item: StudentsModel = StudentsModel(name: student?.name ?? "", progress: studentProgress ?? ProgressModel(goal: nil, grade: nil, subject: nil, data: nil, documentID: nil), documentID: doc.documentID)
+                let item: StudentsModel = StudentsModel(name: student?.name ?? "", progress: studentProgress ?? ProgressModel(goal: nil, grade: nil, subject: nil, data: nil, documentID: nil, endDate: nil), documentID: doc.documentID)
                 students.append(item)
             }
             completion(students, nil)
@@ -49,13 +49,13 @@ class StudentService {
         do {
             let querySnapshot = try await FirebaseHelper.shared.studentCollection().document(documentID).collection("progress").getDocuments()
             if let doc = try? querySnapshot.documents.first?.data(as: ProgressModel.self) {
-                let progress = ProgressModel(goal: doc.goal ?? "", grade: doc.grade ?? "", subject: doc.subject ?? "", data: doc.data, documentID: querySnapshot.documents.first?.documentID)
+                let progress = ProgressModel(goal: doc.goal ?? "", grade: doc.grade ?? "", subject: doc.subject ?? "", data: doc.data, documentID: querySnapshot.documents.first?.documentID, endDate: doc.endDate ?? 0)
                 return progress
             }
         } catch {
             return nil
         }
-        
+
         return nil
     }
 
@@ -66,7 +66,7 @@ class StudentService {
                 "subject": target.subject,
                 "goal": target.goal,
                 "endDate": target.endDate,
-                "data": [ScoreData]()
+                "data": [ScoreData](),
             ]) { error in
                 if let error {
                     completion(false, error.localizedDescription as? Error)
@@ -76,10 +76,11 @@ class StudentService {
                 completion(true, nil)
             }
     }
-    
-    public func addProgress(request: AddProgressRequest, completion: @escaping(Error?) -> Void) {        FirebaseHelper.shared.studentCollection().document(request.documentID).collection("progress").document(request.progressID)
+
+    public func addProgress(request: AddProgressRequest, completion: @escaping (Error?) -> Void) {
+        FirebaseHelper.shared.studentCollection().document(request.documentID).collection("progress").document(request.progressID)
             .setData([
-                "data": FieldValue.arrayUnion([["time": request.date, "score": request.score] as [String : Any]])
+                "data": FieldValue.arrayUnion([["time": request.date, "score": request.score] as [String: Any]]),
             ], merge: true) { err in
                 if let err {
                     completion(err)
@@ -96,6 +97,20 @@ class StudentService {
                 print("Document data: \(dataDescription)")
             } else {
                 print("Document does not exist")
+            }
+        }
+    }
+
+    public func fetchStudentProgress(documentID: String, progressID: String, completion: @escaping (ProgressModel?, String?) -> Void) {
+        let docRef = FirebaseHelper.shared.studentCollection().document(documentID).collection("progress").document(progressID)
+
+        Task {
+            do {
+                let student = try await docRef.getDocument().data(as: ProgressModel.self)
+                let studentProgress: ProgressModel = ProgressModel(goal: student.goal, grade: student.grade, subject: student.subject, data: student.data, documentID: student.documentID, endDate: student.endDate)
+                completion(studentProgress, nil)
+            } catch {
+                completion(nil, "Error")
             }
         }
     }

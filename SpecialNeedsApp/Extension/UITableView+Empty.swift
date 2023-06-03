@@ -9,7 +9,7 @@
 import UIKit
 
 extension UITableView {
-    func setEmptyView(title: String, message: String, withButton: Bool = false) {
+    func setEmptyView(title: String, message: String) {
         let emptyView = UIView(frame: CGRect(x: center.x,
                                              y: center.y,
                                              width: bounds.size.width,
@@ -29,11 +29,6 @@ extension UITableView {
         messageLabel.text = message
         messageLabel.numberOfLines = 0
         messageLabel.textAlignment = .center
-        
-        let button = PrimaryFilledButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Add", for: .normal)
-        button.titleLabel?.textAlignment = .center
 
         emptyView.addSubview(titleLabel)
         emptyView.addSubview(messageLabel)
@@ -48,14 +43,6 @@ extension UITableView {
             messageLabel.trailingAnchor.constraint(equalTo: emptyView.trailingAnchor, constant: -20),
         ])
         
-        if withButton {
-            emptyView.addSubview(button)
-            NSLayoutConstraint.activate([
-                button.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor),
-                button.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 14),
-                button.widthAnchor.constraint(equalToConstant: 110),
-            ])
-        }
         backgroundView = emptyView
         separatorStyle = .none
     }

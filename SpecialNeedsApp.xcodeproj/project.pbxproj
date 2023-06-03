@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1716219129EDC2B2009AF02A /* GradeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1716219029EDC2B2009AF02A /* GradeService.swift */; };
 		1716219329EDC3B3009AF02A /* GradeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1716219229EDC3B3009AF02A /* GradeResponse.swift */; };
+		171957B12A2B31C00053578B /* EmptyStudentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171957B02A2B31C00053578B /* EmptyStudentDetailViewController.swift */; };
+		171957B32A2B34790053578B /* EmptyProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171957B22A2B34790053578B /* EmptyProgressViewController.swift */; };
+		171957B52A2B455C0053578B /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171957B42A2B455C0053578B /* UINavigationController+Extension.swift */; };
 		171C751329F4E23B00E60EB1 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171C751229F4E23B00E60EB1 /* UIAlertController.swift */; };
 		171F18F329F294F200A67FCD /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171F18F229F294F200A67FCD /* FirebaseHelper.swift */; };
 		171F18F529F2954A00A67FCD /* NewGoalRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171F18F429F2954A00A67FCD /* NewGoalRequest.swift */; };
@@ -105,6 +108,9 @@
 		1064DF49C0CD30A7BA059F6A /* Pods-SpecialNeedsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialNeedsApp.debug.xcconfig"; path = "Target Support Files/Pods-SpecialNeedsApp/Pods-SpecialNeedsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		1716219029EDC2B2009AF02A /* GradeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeService.swift; sourceTree = "<group>"; };
 		1716219229EDC3B3009AF02A /* GradeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeResponse.swift; sourceTree = "<group>"; };
+		171957B02A2B31C00053578B /* EmptyStudentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStudentDetailViewController.swift; sourceTree = "<group>"; };
+		171957B22A2B34790053578B /* EmptyProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyProgressViewController.swift; sourceTree = "<group>"; };
+		171957B42A2B455C0053578B /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		171C751229F4E23B00E60EB1 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		171F18F229F294F200A67FCD /* FirebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
 		171F18F429F2954A00A67FCD /* NewGoalRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalRequest.swift; sourceTree = "<group>"; };
@@ -385,6 +391,8 @@
 				176C64882A09558D00267610 /* AddStudentViewController.swift */,
 				176C648A2A09562100267610 /* AddStudentTargetViewController.swift */,
 				175FABEC2A1A2A4B003E8EA2 /* AddStudentProgressViewController.swift */,
+				171957B02A2B31C00053578B /* EmptyStudentDetailViewController.swift */,
+				171957B22A2B34790053578B /* EmptyProgressViewController.swift */,
 			);
 			path = Controler;
 			sourceTree = "<group>";
@@ -407,6 +415,7 @@
 				178D1B7B29F1C51A0033689E /* UITableView+Empty.swift */,
 				171C751229F4E23B00E60EB1 /* UIAlertController.swift */,
 				175FABEA2A1A0F84003E8EA2 /* ChartXAxisFormatter.swift */,
+				171957B42A2B455C0053578B /* UINavigationController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -589,7 +598,9 @@
 				17C6A0B329E7AD550032B90A /* ProfileViewController.swift in Sources */,
 				9A55F9CE238BCC3400B38A32 /* AppDelegate.swift in Sources */,
 				17C8391F29E5BFB200FE5BBC /* LoginUserRequest.swift in Sources */,
+				171957B52A2B455C0053578B /* UINavigationController+Extension.swift in Sources */,
 				176C64872A0950DB00267610 /* StudentDetailViewController.swift in Sources */,
+				171957B32A2B34790053578B /* EmptyProgressViewController.swift in Sources */,
 				9A55F9F9238D79DC00B38A32 /* GoalsVC.swift in Sources */,
 				17C6A0AD29E7A9350032B90A /* TabViewController.swift in Sources */,
 				171F18F729F2BAE900A67FCD /* PrekDataModel.swift in Sources */,
@@ -605,6 +616,7 @@
 				174526F429EF0944003D1D18 /* NewGradeRequest.swift in Sources */,
 				178D1B7E29F1CBCE0033689E /* GoalsResponse.swift in Sources */,
 				AF48D5EF2406A482008B2F90 /* Utils.swift in Sources */,
+				171957B12A2B31C00053578B /* EmptyStudentDetailViewController.swift in Sources */,
 				17D2FC9829E866930043F0DF /* UITextField.swift in Sources */,
 				174526F029EEDC53003D1D18 /* Grades.swift in Sources */,
 				176C64832A094D8D00267610 /* StudentResponse.swift in Sources */,

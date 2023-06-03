@@ -39,6 +39,7 @@ class AddStudentViewController: UIViewController {
         }
         
         view.makeToast("Your should fill the student name")
+        dismiss(animated: true)
         return
     }
 }
