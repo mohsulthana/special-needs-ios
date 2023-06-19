@@ -14,6 +14,8 @@ class AddStudentViewController: UIViewController {
     @IBOutlet weak var addBtn: PrimaryFilledButton!
     @IBOutlet weak var studentNameTextfield: CustomTextField!
     
+    var isDismissed: (() -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Add New Student"
@@ -33,6 +35,7 @@ class AddStudentViewController: UIViewController {
                 
                 self.dismiss(animated: true) {
                     self.view.makeToast("Student has been added")
+                    self.isDismissed?()
                 }
                 self.loadingIndicator.stopAnimating()
             }

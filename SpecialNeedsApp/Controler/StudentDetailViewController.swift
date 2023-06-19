@@ -13,14 +13,36 @@ class StudentDetailViewController: UIViewController {
     @IBOutlet var studentChart: LineChartView!
     @IBOutlet var progressTableView: UITableView!
     @IBOutlet var rootView: UIView!
+    @IBOutlet weak var addProgressButton: UIButton!
+    @IBOutlet weak var studentInfoContainerView: UIView!
+    @IBOutlet weak var timingContainerView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     var students: StudentsModel?
     var progress: ProgressModel?
 
+    @IBOutlet weak var intervalLabel: UILabel!
     @IBOutlet weak var studentNameLabel: UILabel!
     @IBOutlet weak var studentSubjectLabel: UILabel!
     @IBOutlet weak var studentGoalLabel: UILabel!
     @IBOutlet weak var studentGradeLabel: UILabel!
     @IBOutlet weak var endDateLabel: UILabel!
+    @IBOutlet weak var endedView: UIView!
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self,
+                                 action: #selector(handleRefresh(_:)),
+                                 for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = .red
+
+        return refreshControl
+    }()
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        fetchStudentProgress()
+
+        refreshControl.endRefreshing()
+    }
     
     var numbers: [Double] = []
     var date: [Int] = []
@@ -31,13 +53,40 @@ class StudentDetailViewController: UIViewController {
         guard let student = students else { return }
         navigationItem.title = student.name
         studentNameLabel.text = student.name
+        intervalLabel.text = student.progress.interval?.capitalized
         studentGoalLabel.text = student.progress.goal
         studentGradeLabel.text = student.progress.grade
         studentSubjectLabel.text = student.progress.subject
-        endDateLabel.text = "Ended on \(timestampToFullDateString(timestamp: Double(student.progress.endDate ?? 0)))"
+        endDateLabel.text = "End Date \(DateUtils.timestampToDateString(timestamp: Double(student.progress.endDate ?? 0)))"
         
         progressTableView.delegate = self
         progressTableView.dataSource = self
+        
+        view.frame = CGRect(x: 0, y: 0, width: rootView.frame.width, height: 1000)
+        endedView.layer.cornerRadius = 4
+        endedView.layer.masksToBounds = true
+        endedView.isHidden = isTargetEnded()
+        addProgressButton.isEnabled = isTargetEnded()
+        
+        setupUI()
+    }
+    
+    private func setupUI() {
+        studentInfoContainerView.translatesAutoresizingMaskIntoConstraints = false
+        timingContainerView.translatesAutoresizingMaskIntoConstraints = false
+        intervalLabel.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        rootView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            studentInfoContainerView.bottomAnchor.constraint(equalTo: studentGoalLabel.bottomAnchor, constant: 16),
+            timingContainerView.bottomAnchor.constraint(equalTo: intervalLabel.bottomAnchor, constant: 8),
+            scrollView.heightAnchor.constraint(equalToConstant: 1000)
+        ])
+    }
+    
+    private func isTargetEnded() -> Bool {
+        return students?.progress.endDate ?? 0 > Int(Date().timeIntervalSince1970)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,13 +121,7 @@ class StudentDetailViewController: UIViewController {
             }
         }
     }
-
-    @IBAction func handleAddProgressBtn(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "AddStudentTarget_VC") as! AddStudentTargetViewController
-        vc.students = students
-        navigationController?.pushViewController(vc, animated: true)
-    }
-
+    
     func updateGraph() {
         var lineChartEntry = [ChartDataEntry]()
         
@@ -104,7 +147,7 @@ class StudentDetailViewController: UIViewController {
 
         var dateString: [String] = []
         date.forEach { timestamp in
-            let convertedDate = timestampToShortDateString(timestamp: Double(timestamp))
+            let convertedDate = DateUtils.timestampToDateString(short: true, timestamp: Double(timestamp))
             dateString.append(convertedDate)
         }
 
@@ -120,34 +163,20 @@ class StudentDetailViewController: UIViewController {
         studentChart.noDataTextColor = .darkText
         studentChart.noDataTextAlignment = .center
 
-        studentChart.chartDescription.text = "\(students?.name ?? "") progress" // Here we set the description for the graph
+        studentChart.chartDescription.text = "\(students?.name ?? "") progress"
     }
-
-    private func timestampToFullDateString(timestamp: Double) -> String {
-        let date = Date(timeIntervalSince1970: timestamp)
-        let dateFormatter = DateFormatter()
-        let timezone = TimeZone.current.abbreviation() ?? "CET" // get current TimeZone abbreviation or set to CET
-        dateFormatter.timeZone = TimeZone(abbreviation: timezone) // Set timezone that you want
-        dateFormatter.locale = NSLocale.current
-        dateFormatter.dateFormat = "MM/dd/yyyy" // Specify your format that you want
-        return dateFormatter.string(from: date)
-    }
-
-    private func timestampToShortDateString(timestamp: Double) -> String {
-        let date = Date(timeIntervalSince1970: timestamp)
-        let dateFormatter = DateFormatter()
-        let timezone = TimeZone.current.abbreviation() ?? "CET" // get current TimeZone abbreviation or set to CET
-        dateFormatter.timeZone = TimeZone(abbreviation: timezone) // Set timezone that you want
-        dateFormatter.locale = NSLocale.current
-        dateFormatter.dateFormat = "MM/dd" // Specify your format that you want
-        return dateFormatter.string(from: date)
+    
+    @IBAction func handleAddProgressBtn(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "AddStudentProgress_VC") as! AddStudentProgressViewController
+        vc.student = students
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
 extension StudentDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var numberObjects = numbers.count + 1
-        if numberObjects == 1 {
+        var numberObjects = numbers.count
+        if numberObjects == 0 {
             tableView.setEmptyView(title: "No data recorded", message: "Add some progress to show the data on this page")
             numberObjects = 0
         } else {
@@ -158,30 +187,18 @@ extension StudentDetailViewController: UITableViewDelegate, UITableViewDataSourc
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "targetCellId", for: indexPath)
+        
+        let dateLabel = DateUtils.timestampToDateString(timestamp: Double(date[indexPath.row]))
+        let progressLabel = numbers[indexPath.row]
 
-        if indexPath.row == numbers.count {
-            cell.textLabel?.text = "+ Add New Progress"
-            cell.textLabel?.textColor = .primaryColor
-            cell.detailTextLabel?.text = ""
-        } else {
-            let dateLabel = timestampToFullDateString(timestamp: Double(date[indexPath.row]))
-            let progressLabel = numbers[indexPath.row]
-
-            cell.textLabel?.text = "\(dateLabel)"
-            cell.detailTextLabel?.text = "\(progressLabel)"
-        }
+        cell.textLabel?.text = "\(dateLabel)"
+        cell.detailTextLabel?.text = "\(progressLabel)"
 
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == numbers.count {
-            let vc = storyboard?.instantiateViewController(withIdentifier: "AddStudentProgress_VC") as! AddStudentProgressViewController
-            vc.student = students
-            navigationController?.pushViewController(vc, animated: true)
-        } else {
-            print("Hello world")
-        }
+        print("Hello world")
     }
 
     @objc private func buttonTapped(_ sender: UIButton) {

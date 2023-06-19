@@ -29,14 +29,14 @@ class StudentService {
                 var studentProgress: ProgressModel?
 
                 do {
-                    let progress: ProgressModel = try await getStudentProgress(documentID: doc.documentID) ?? ProgressModel(goal: nil, grade: nil, subject: nil, data: nil, documentID: nil, endDate: nil)
+                    let progress: ProgressModel = try await getStudentProgress(documentID: doc.documentID) ?? ProgressModel(goal: nil, grade: nil, subject: nil, data: nil, documentID: nil, endDate: nil, interval: nil)
                     studentProgress = progress
                 } catch {
                     print("Error: \(error)")
                     continue
                 }
 
-                let item: StudentsModel = StudentsModel(name: student?.name ?? "", progress: studentProgress ?? ProgressModel(goal: nil, grade: nil, subject: nil, data: nil, documentID: nil, endDate: nil), documentID: doc.documentID)
+                let item: StudentsModel = StudentsModel(name: student?.name ?? "", progress: studentProgress ?? ProgressModel(goal: nil, grade: nil, subject: nil, data: nil, documentID: nil, endDate: nil, interval: nil), documentID: doc.documentID)
                 students.append(item)
             }
             completion(students, nil)
@@ -49,7 +49,7 @@ class StudentService {
         do {
             let querySnapshot = try await FirebaseHelper.shared.studentCollection().document(documentID).collection("progress").getDocuments()
             if let doc = try? querySnapshot.documents.first?.data(as: ProgressModel.self) {
-                let progress = ProgressModel(goal: doc.goal ?? "", grade: doc.grade ?? "", subject: doc.subject ?? "", data: doc.data, documentID: querySnapshot.documents.first?.documentID, endDate: doc.endDate ?? 0)
+                let progress = ProgressModel(goal: doc.goal ?? "", grade: doc.grade ?? "", subject: doc.subject ?? "", data: doc.data, documentID: querySnapshot.documents.first?.documentID, endDate: doc.endDate ?? 0, interval: doc.interval)
                 return progress
             }
         } catch {
@@ -59,21 +59,23 @@ class StudentService {
         return nil
     }
 
-    public func addStudentTarget(target: AddStudentTargetRequest, documentID: String, completion: @escaping (Bool?, Error?) -> Void) {
-        FirebaseHelper.shared.studentCollection().document(documentID).collection("progress").document()
-            .setData([
+    public func addStudentTarget(target: AddStudentTargetRequest, documentID: String, completion: @escaping (String?, Error?) -> Void) {
+        let ref = FirebaseHelper.shared.studentCollection().document(documentID).collection("progress").document()
+        
+            ref.setData([
                 "grade": target.grade,
                 "subject": target.subject,
                 "goal": target.goal,
                 "endDate": target.endDate,
                 "data": [ScoreData](),
+                "interval": target.interval
             ]) { error in
                 if let error {
-                    completion(false, error.localizedDescription as? Error)
+                    completion(nil, error.localizedDescription as? Error)
                     return
                 }
 
-                completion(true, nil)
+                completion(ref.documentID, nil)
             }
     }
 
@@ -107,7 +109,7 @@ class StudentService {
         Task {
             do {
                 let student = try await docRef.getDocument().data(as: ProgressModel.self)
-                let studentProgress: ProgressModel = ProgressModel(goal: student.goal, grade: student.grade, subject: student.subject, data: student.data, documentID: student.documentID, endDate: student.endDate)
+                let studentProgress: ProgressModel = ProgressModel(goal: student.goal, grade: student.grade, subject: student.subject, data: student.data, documentID: student.documentID, endDate: student.endDate, interval: student.interval)
                 completion(studentProgress, nil)
             } catch {
                 completion(nil, "Error")

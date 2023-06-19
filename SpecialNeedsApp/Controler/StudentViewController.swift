@@ -11,6 +11,8 @@ import UIKit
 class StudentViewController: UIViewController {
     
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var addStudentBtn: UIBarButtonItem!
+    var isReloadData = true
     
     var students = [StudentsModel]() {
         didSet {
@@ -20,6 +22,17 @@ class StudentViewController: UIViewController {
         }
     }
 
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self,
+                                 action: #selector(handleRefresh(_:)),
+                                 for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = .primaryColor
+
+        return refreshControl
+    }()
+
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -27,13 +40,39 @@ class StudentViewController: UIViewController {
     
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.addSubview(refreshControl)
+        tableView.showsVerticalScrollIndicator = true
+        
+        addStudentBtn.action = #selector(openAddStudentVC)
+        addStudentBtn.target = self
+    }
+    
+    @objc func openAddStudentVC() {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let modalController = storyboard.instantiateViewController(withIdentifier: "AddStudent_VC") as! AddStudentViewController
+        
+        modalController.isDismissed = { [weak self] in
+            Task {
+                await self?.fetchStudents()
+            }
+        }
+        present(modalController, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if self.isReloadData {
+            Task {
+                await self.fetchStudents()
+            }
+        }
+    }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         Task {
             await self.fetchStudents()
+            refreshControl.endRefreshing()
         }
     }
     
@@ -48,7 +87,7 @@ class StudentViewController: UIViewController {
             
             guard let allStudent = students else { return }
             
-            self.students = allStudent
+            self.students = allStudent.sorted(by: { $0.name > $1.name })
             DispatchQueue.main.async {
                 self.loadingIndicator.stopAnimating()
             }
@@ -79,7 +118,7 @@ extension StudentViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "studentCell", for: indexPath)
         
         cell.textLabel?.text = students[indexPath.row].name
-        cell.accessoryType = .detailButton
+        cell.accessoryType = .disclosureIndicator
         
         return cell
     }

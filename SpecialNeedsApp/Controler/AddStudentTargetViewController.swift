@@ -31,11 +31,11 @@ class AddStudentTargetViewController: UIViewController {
     var subjectPickerView = UIPickerView()
     var goalPickerView = UIPickerView()
     var intervalPickerView = UIPickerView()
+    let datePicker = UIDatePicker()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
         datePicker.frame.size = CGSize(width: 0, height: 300)
@@ -69,15 +69,20 @@ class AddStudentTargetViewController: UIViewController {
     }
 
     @objc func dateChanged(datePicker: UIDatePicker) {
-        endDateTextfield.text = formatDate(date: datePicker.date)
+        endDateTextfield.text = timestampToShortDateString(date: datePicker.date)
     }
-
-    func formatDate(date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/mm/yyyy"
-        return formatter.string(from: date)
+    
+    private func timestampToShortDateString(date: Date) -> String {
+        let timestamp = date.timeIntervalSince1970
+        let date = Date(timeIntervalSince1970: timestamp)
+        let dateFormatter = DateFormatter()
+        let timezone = TimeZone.current.abbreviation() ?? "CET" // get current TimeZone abbreviation or set to CET
+        dateFormatter.timeZone = TimeZone(abbreviation: timezone) // Set timezone that you want
+        dateFormatter.locale = NSLocale.current
+        dateFormatter.dateFormat = "MM/dd/YYYY" // Specify your format that you want
+        return dateFormatter.string(from: date)
     }
-
+    
     private func fetchGradesData() {
         gradesArr = []
         GradeService.shared.fetchGrades { grades, error in
@@ -145,20 +150,26 @@ class AddStudentTargetViewController: UIViewController {
         loadingIndicator.startAnimating()
 
         if let grade = gradeTextfield.text, let subject = subjectTextfield.text, let goal = goalTextfield.text, let interval = timeTextfield.text, let endDate = endDateTextfield.text {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd/mm/yyyy"
-            let endDateTimestamp = formatter.date(from: endDate)?.timeIntervalSince1970 ?? 0.0
+            let endDateTimestamp = datePicker.date.timeIntervalSince1970
             let target = AddStudentTargetRequest(grade: grade, subject: subject, goal: goal, interval: interval, endDate: endDateTimestamp)
-            StudentService.shared.addStudentTarget(target: target, documentID: students?.documentID ?? "") { isSuccess, error in
+            StudentService.shared.addStudentTarget(target: target, documentID: students?.documentID ?? "") { progressID, error in
                 if error != nil {
                     self.view.makeToast("Internal server error when adding student target.")
                     self.loadingIndicator.stopAnimating()
                     return
                 }
                 
-                if isSuccess ?? true {
-                    self.view.makeToast("Successfully added student target")
-                    self.loadingIndicator.startAnimating()
+                if progressID != nil {
+                    let sb = UIStoryboard(name: "Main", bundle: nil)
+                    let vc = sb.instantiateViewController(identifier: "EmptyProgress_VC") as! EmptyProgressViewController
+                    guard let students = self.students else { return }
+                    let student: StudentsModel = StudentsModel(name: students.name, progress: ProgressModel(goal: students.progress.goal, grade: students.progress.grade, subject: students.progress.subject, data: students.progress.data, documentID: progressID, endDate: students.progress.endDate, interval: students.progress.interval), documentID: students.documentID)
+                    vc.student = student
+                    
+                    self.navigationController?.popToViewController(of: StudentViewController.self, animated: true)
+                    self.view.makeToast("Successfully set up student target")
+                    self.loadingIndicator.stopAnimating()
+                    
                     return
                 }
             }

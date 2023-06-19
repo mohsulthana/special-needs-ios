@@ -14,6 +14,7 @@ class AddStudentProgressViewController: UIViewController {
     @IBOutlet weak var scoreTextfield: UITextField!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     var student: StudentsModel?
+    let datePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,23 +22,29 @@ class AddStudentProgressViewController: UIViewController {
         scoreTextfield.keyboardType = .numberPad
         scoreTextfield.delegate = self
         
-        let datePicker = UIDatePicker()
+        let studentProgressDate = student?.progress.data?.sorted(by: { $0.time ?? 0 < $1.time ?? 0 })
+        let studentLastEndDate = Double(studentProgressDate?.last?.time ?? 0)
+        
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
         datePicker.frame.size = CGSize(width: 0, height: 300)
         datePicker.preferredDatePickerStyle = .wheels
-        datePicker.minimumDate = Date() - 1
+        
+        if student?.progress.interval == "Monthly" {
+            datePicker.minimumDate = DateUtils.monthlyModeMinDate(timestamp: studentLastEndDate)
+            datePicker.maximumDate = DateUtils.monthlyModeMaxDate(timestamp: studentLastEndDate)
+            datePicker.date = Calendar.current.date(byAdding: .day, value: 30, to: Date(timeIntervalSince1970: studentLastEndDate)) ?? Date()
+        } else if student?.progress.interval == "Weekly" {
+            datePicker.minimumDate = DateUtils.weeklyModeMinDate(timestamp: studentLastEndDate)
+            datePicker.maximumDate = DateUtils.weeklyModeMaxDate(timestamp: studentLastEndDate)
+            datePicker.date = Calendar.current.date(byAdding: .day, value: 7, to: Date(timeIntervalSince1970: studentLastEndDate)) ?? Date()
+        }
+        datepickerTextfield.text = timestampToShortDateString(date: datePicker.date)
         datepickerTextfield.inputView = datePicker
     }
     
     @objc func dateChanged(datePicker: UIDatePicker) {
         datepickerTextfield.text = timestampToShortDateString(date: datePicker.date)
-    }
-    
-    func formatDate(date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/mm/yyyy"
-        return formatter.string(from: date)
     }
     
     private func stringDateToTimestamp(date: String) -> Double {
@@ -62,11 +69,13 @@ class AddStudentProgressViewController: UIViewController {
             self.view.makeToast("Please fill all required field")
             return
         }
+        
+        let studentLastEndDate = student?.progress.data?.sorted(by: { $0.time ?? 0 < $1.time ?? 0 }).last?.time
 
         loadingIndicator.startAnimating()
 
         if let date = datepickerTextfield.text, let score = scoreTextfield.text {
-            let timestampDate = stringDateToTimestamp(date: date)
+            let timestampDate = datePicker.date.timeIntervalSince1970
             let request: AddProgressRequest = AddProgressRequest(score: Int(score) ?? 0, date: timestampDate, documentID: student?.documentID ?? "", progressID: student?.progress.documentID ?? "")
 
             StudentService.shared.addProgress(request: request) { [weak self] error in

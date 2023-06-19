@@ -21,6 +21,7 @@ struct ProgressModel: Decodable {
     let data: [ScoreData]?
     let documentID: String?
     let endDate: Int?
+    let interval: String?
 }
 
 struct ScoreData: Decodable {
